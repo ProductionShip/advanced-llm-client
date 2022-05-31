@@ -71,3 +71,48 @@ publishing {
                 description.set("Java http client wrapped around the OkHttp3 library")
                 url.set("https://github.com/carlrobertoh/llm-client")
                 licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("linnupuu")
+                        name.set("Carl-Robert Linnupuu")
+                        email.set("carlrobertoh@gmail.com")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/carlrobertoh/llm-client")
+                    connection.set("scm:git://github.com/carlrobertoh/llm-client.git")
+                    developerConnection.set("scm:git://github.com/carlrobertoh/llm-client.git")
+                }
+            }
+        }
+    }
+}
+
+signing {
+    val signingKey = (findProperty("signingKey") ?: "") as String
+    val signingPassword = (findProperty("signingPassword") ?: "") as String
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign(publishing.publications["mavenJava"])
+}
+
+tasks {
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
+    }
+    jar {
+        from(sourceSets["main"].output)
+        from(sourceSets["test"].output) {
+            include("**/http/**")
+            include("**/mixin/**")
+            include("**/util/**")
+        }
+    }
+}
