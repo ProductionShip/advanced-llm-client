@@ -6,4 +6,5 @@
 
 <suppressions>
   <suppress files="[\\/]src[\\/]main[\\/]java[\\/]ee[\\/]carlrobert[\\/]llm[\\/]client[\\/]llama[\\/]completion[\\/]LlamaCompletionRequest.java" checks="."/>
-  <suppress files="[\\/]src[\\/]test[\\/]j
+  <suppress files="[\\/]src[\\/]test[\\/]java[\\/]ee[\\/]carlrobert[\\/]llm[\\/]client[\\/]util[\\/]JSONUtil.java" checks="."/>
+</suppressions>
