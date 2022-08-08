@@ -74,4 +74,13 @@ while
 do
     ls=$( ls -ld "$app_path" )
     link=${ls#*' -> '}
-    case $link i
+    case $link in             #(
+      /*)   app_path=$link ;; #(
+      *)    app_path=$APP_HOME$link ;;
+    esac
+done
+
+# This is normally unused
+# shellcheck disable=SC2034
+APP_BASE_NAME=${0##*/}
+# Discard cd standard output in case $CDPATH is set (https://github.com/gradle/gradle/
