@@ -222,4 +222,12 @@ fi
 
 # Use "xargs" to parse quoted args.
 #
-# With -n1 it outputs one arg per line, with the 
+# With -n1 it outputs one arg per line, with the quotes and backslashes removed.
+#
+# In Bash we could simply go:
+#
+#   readarray ARGS < <( xargs -n1 <<<"$var" ) &&
+#   set -- "${ARGS[@]}" "$@"
+#
+# but POSIX shell has neither arrays nor command substitution, so instead we
+# post-process each ar
