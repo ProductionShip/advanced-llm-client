@@ -18,4 +18,7 @@ public class DeserializationUtil {
     try {
       return OBJECT_MAPPER.readValue(body.string(), clazz);
     } catch (IOException ex) {
-      throw new RuntimeException("Could not deserialize response
+      throw new RuntimeException("Could not deserialize response", ex);
+    }
+  }
+}
