@@ -20,4 +20,9 @@ public class InterceptorUtil {
         BufferedSource source = originalBody.source();
         try (Buffer buffer = new Buffer()) {
           while (!source.exhausted()) {
-           
+            String line = source.readUtf8LineStrict();
+            buffer.writeUtf8("data: ").writeUtf8(line).writeUtf8("\n\n");
+          }
+          return response.newBuilder()
+              .header("Content-Type", "text/event-stream")
+              .body(ResponseB
