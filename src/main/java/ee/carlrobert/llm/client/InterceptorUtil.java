@@ -25,4 +25,13 @@ public class InterceptorUtil {
           }
           return response.newBuilder()
               .header("Content-Type", "text/event-stream")
-              .body(ResponseB
+              .body(ResponseBody.create(
+                  buffer.readByteString(),
+                  MediaType.parse("text/event-stream")))
+              .build();
+        }
+      }
+    }
+    return response;
+  };
+}
