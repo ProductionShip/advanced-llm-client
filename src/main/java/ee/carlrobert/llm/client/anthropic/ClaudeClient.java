@@ -9,4 +9,9 @@ import ee.carlrobert.llm.client.anthropic.completion.ClaudeCompletionErrorDetail
 import ee.carlrobert.llm.client.anthropic.completion.ClaudeCompletionRequest;
 import ee.carlrobert.llm.client.anthropic.completion.ClaudeCompletionResponse;
 import ee.carlrobert.llm.client.anthropic.completion.ClaudeCompletionStreamResponse;
-i
+import ee.carlrobert.llm.client.openai.completion.ErrorDetails;
+import ee.carlrobert.llm.completion.CompletionEventListener;
+import ee.carlrobert.llm.completion.CompletionEventSourceListener;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
