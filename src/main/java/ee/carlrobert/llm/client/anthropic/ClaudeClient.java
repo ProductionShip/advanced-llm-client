@@ -33,4 +33,11 @@ public class ClaudeClient {
   private final String host;
 
   @Deprecated
-  public ClaudeClient(String apiKey, String apiVersion, O
+  public ClaudeClient(String apiKey, String apiVersion, OkHttpClient.Builder httpClientBuilder) {
+    this.httpClient = httpClientBuilder.build();
+    this.apiKey = apiKey;
+    this.apiVersion = apiVersion;
+    this.host = PropertiesLoader.getValue("anthropic.baseUrl");
+  }
+
+  public Claud
