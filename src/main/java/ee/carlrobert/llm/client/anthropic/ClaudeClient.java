@@ -25,4 +25,12 @@ import okhttp3.sse.EventSources;
 
 public class ClaudeClient {
 
-  private static final MediaType APPLICATION_JSON = M
+  private static final MediaType APPLICATION_JSON = MediaType.parse("application/json");
+
+  private final OkHttpClient httpClient;
+  private final String apiKey;
+  private final String apiVersion;
+  private final String host;
+
+  @Deprecated
+  public ClaudeClient(String apiKey, String apiVersion, O
