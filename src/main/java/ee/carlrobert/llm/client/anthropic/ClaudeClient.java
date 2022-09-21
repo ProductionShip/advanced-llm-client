@@ -58,4 +58,14 @@ public class ClaudeClient {
   public ClaudeCompletionResponse getCompletion(ClaudeCompletionRequest request) {
     try (var response = httpClient.newCall(buildCompletionRequest(request)).execute()) {
       return DeserializationUtil.mapResponse(response, ClaudeCompletionResponse.class);
-    } catch (IO
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  protected Request buildCompletionRequest(ClaudeCompletionRequest request) {
+    var headers = new HashMap<>(getRequiredHeaders());
+    if (request.isStream()) {
+      headers.put("Accept", "text/event-stream");
+    }
+    try
