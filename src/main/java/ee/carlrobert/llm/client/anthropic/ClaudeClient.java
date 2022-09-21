@@ -55,4 +55,7 @@ public class ClaudeClient {
         getCompletionEventSourceListener(eventListener));
   }
 
-  public ClaudeCompl
+  public ClaudeCompletionResponse getCompletion(ClaudeCompletionRequest request) {
+    try (var response = httpClient.newCall(buildCompletionRequest(request)).execute()) {
+      return DeserializationUtil.mapResponse(response, ClaudeCompletionResponse.class);
+    } catch (IO
