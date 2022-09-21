@@ -40,4 +40,12 @@ public class ClaudeClient {
     this.host = PropertiesLoader.getValue("anthropic.baseUrl");
   }
 
-  public Claud
+  public ClaudeClient(Builder builder, OkHttpClient.Builder httpClientBuilder) {
+    this.apiKey = builder.apiKey;
+    this.apiVersion = builder.apiVersion;
+    this.host = builder.host;
+    this.httpClient = httpClientBuilder.build();
+  }
+
+  public EventSource getCompletionAsync(
+      ClaudeCompletionR
