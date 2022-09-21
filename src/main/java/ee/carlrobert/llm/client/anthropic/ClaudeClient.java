@@ -48,4 +48,11 @@ public class ClaudeClient {
   }
 
   public EventSource getCompletionAsync(
-      ClaudeCompletionR
+      ClaudeCompletionRequest request,
+      CompletionEventListener<String> eventListener) {
+    return EventSources.createFactory(httpClient).newEventSource(
+        buildCompletionRequest(request),
+        getCompletionEventSourceListener(eventListener));
+  }
+
+  public ClaudeCompl
