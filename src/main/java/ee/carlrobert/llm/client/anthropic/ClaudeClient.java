@@ -73,4 +73,12 @@ public class ClaudeClient {
           .url(host + "/v1/messages")
           .headers(Headers.of(headers))
           .post(RequestBody.create(OBJECT_MAPPER.writeValueAsString(request), APPLICATION_JSON))
-          .build
+          .build();
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException("Unable to process request", e);
+    }
+  }
+
+  private Map<String, String> getRequiredHeaders() {
+    return new HashMap<>(Map.of("x-api-key", apiKey, "anthropic-version", apiVersion));
+ 
