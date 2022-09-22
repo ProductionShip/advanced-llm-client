@@ -68,4 +68,9 @@ public class ClaudeClient {
     if (request.isStream()) {
       headers.put("Accept", "text/event-stream");
     }
-    try
+    try {
+      return new Request.Builder()
+          .url(host + "/v1/messages")
+          .headers(Headers.of(headers))
+          .post(RequestBody.create(OBJECT_MAPPER.writeValueAsString(request), APPLICATION_JSON))
+          .build
