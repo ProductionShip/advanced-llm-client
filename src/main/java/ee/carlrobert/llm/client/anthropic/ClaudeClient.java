@@ -81,4 +81,10 @@ public class ClaudeClient {
 
   private Map<String, String> getRequiredHeaders() {
     return new HashMap<>(Map.of("x-api-key", apiKey, "anthropic-version", apiVersion));
- 
+  }
+
+  private CompletionEventSourceListener<String> getCompletionEventSourceListener(
+      CompletionEventListener<String> eventListener) {
+    return new CompletionEventSourceListener<>(eventListener) {
+      @Override
+      protected String g
