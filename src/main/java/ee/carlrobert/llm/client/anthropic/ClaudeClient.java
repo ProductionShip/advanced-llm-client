@@ -94,4 +94,15 @@ public class ClaudeClient {
               .getText();
         } catch (Exception e) {
           try {
-            return OBJECT_MAPPER.readValue(dat
+            return OBJECT_MAPPER.readValue(data, ClaudeCompletionErrorDetails.class)
+                .getError()
+                .getMessage();
+          } catch (Exception ex) {
+            return "";
+          }
+        }
+      }
+
+      @Override
+      protected ErrorDetails getErrorDetails(String error) {
+  
