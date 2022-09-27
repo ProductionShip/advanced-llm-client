@@ -105,4 +105,15 @@ public class ClaudeClient {
 
       @Override
       protected ErrorDetails getErrorDetails(String error) {
-  
+        try {
+          return OBJECT_MAPPER.readValue(error, ClaudeCompletionErrorDetails.class).getError();
+        } catch (JsonProcessingException e) {
+          throw new RuntimeException(e);
+        }
+      }
+    };
+  }
+
+  public static class Builder {
+
+    private final 
