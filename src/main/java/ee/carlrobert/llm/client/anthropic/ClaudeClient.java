@@ -87,4 +87,11 @@ public class ClaudeClient {
       CompletionEventListener<String> eventListener) {
     return new CompletionEventSourceListener<>(eventListener) {
       @Override
-      protected String g
+      protected String getMessage(String data) {
+        try {
+          return OBJECT_MAPPER.readValue(data, ClaudeCompletionStreamResponse.class)
+              .getDelta()
+              .getText();
+        } catch (Exception e) {
+          try {
+            return OBJECT_MAPPER.readValue(dat
