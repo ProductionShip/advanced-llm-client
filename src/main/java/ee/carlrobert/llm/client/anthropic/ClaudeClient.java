@@ -116,4 +116,13 @@ public class ClaudeClient {
 
   public static class Builder {
 
-    private final 
+    private final String apiKey;
+    private final String apiVersion;
+    private String host = PropertiesLoader.getValue("anthropic.baseUrl");
+
+    public Builder(String apiKey, String apiVersion) {
+      this.apiKey = apiKey;
+      this.apiVersion = apiVersion;
+    }
+
+    public Builder setHost(String host)
