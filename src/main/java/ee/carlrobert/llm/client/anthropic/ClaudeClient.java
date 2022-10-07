@@ -136,4 +136,6 @@ public class ClaudeClient {
 
     public ClaudeClient build() {
       return build(new OkHttpClient.Builder());
- 
+    }
+  }
+}
