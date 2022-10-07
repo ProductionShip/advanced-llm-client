@@ -125,4 +125,15 @@ public class ClaudeClient {
       this.apiVersion = apiVersion;
     }
 
-    public Builder setHost(String host)
+    public Builder setHost(String host) {
+      this.host = host;
+      return this;
+    }
+
+    public ClaudeClient build(OkHttpClient.Builder builder) {
+      return new ClaudeClient(this, builder);
+    }
+
+    public ClaudeClient build() {
+      return build(new OkHttpClient.Builder());
+ 
