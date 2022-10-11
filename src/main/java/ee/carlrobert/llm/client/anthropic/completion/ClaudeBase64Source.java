@@ -11,4 +11,15 @@ import java.util.Base64;
  * Represents a base64-encoded data source in Claude.
  * <br>
  * Allowed media types include the following:
- * image/jpeg, image/png, image/gif, and im
+ * image/jpeg, image/png, image/gif, and image/webp
+ */
+@JsonTypeName("base64")
+public class ClaudeBase64Source extends ClaudeSource {
+  @JsonProperty("media_type")
+  private String mediaType;
+  private byte[] data;
+
+  public ClaudeBase64Source(String mediaType, byte[] data) {
+    this.mediaType = mediaType;
+    this.data = data;
+  }
