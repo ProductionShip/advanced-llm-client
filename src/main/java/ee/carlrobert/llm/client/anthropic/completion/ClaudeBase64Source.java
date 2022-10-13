@@ -23,3 +23,21 @@ public class ClaudeBase64Source extends ClaudeSource {
     this.mediaType = mediaType;
     this.data = data;
   }
+
+  public ClaudeBase64Source() {
+  }
+
+  public String getMediaType() {
+    return mediaType;
+  }
+
+  public void setMediaType(String mediaType) {
+    this.mediaType = mediaType;
+  }
+
+  @JsonIgnore
+  public byte[] getData() {
+    return this.data;
+  }
+
+  @JsonIgnor
