@@ -40,4 +40,16 @@ public class ClaudeBase64Source extends ClaudeSource {
     return this.data;
   }
 
-  @JsonIgnor
+  @JsonIgnore
+  public void setData(byte[] data) {
+    this.data = data;
+  }
+
+  /**
+   * Gets the data as base64 encoded string.
+   *
+   * @return the data
+   */
+  @JsonGetter("data")
+  public String getBase64EncodedData() {
+    return Base64.getEncoder().encodeToString(this.da
