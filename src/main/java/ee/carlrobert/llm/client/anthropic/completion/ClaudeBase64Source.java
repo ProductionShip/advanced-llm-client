@@ -63,3 +63,5 @@ public class ClaudeBase64Source extends ClaudeSource {
   @JsonSetter("data")
   public void setBase64EncodedData(String base64Data) {
     this.data = Base64.getDecoder().decode(base64Data);
+  }
+}
