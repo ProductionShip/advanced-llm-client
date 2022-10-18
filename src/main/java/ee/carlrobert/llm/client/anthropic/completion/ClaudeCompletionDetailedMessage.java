@@ -14,4 +14,20 @@ public class ClaudeCompletionDetailedMessage implements ClaudeCompletionMessage 
   }
 
   public ClaudeCompletionDetailedMessage(String role, List<ClaudeMessageContent> content) {
-    this.ro
+    this.role = role;
+    this.content = content;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public List<ClaudeMessageContent> getContent() {
+    return content;
+  }
+
+  public void setContent(List
