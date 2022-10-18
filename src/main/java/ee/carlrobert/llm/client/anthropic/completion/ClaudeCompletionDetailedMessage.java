@@ -30,4 +30,7 @@ public class ClaudeCompletionDetailedMessage implements ClaudeCompletionMessage 
     return content;
   }
 
-  public void setContent(List
+  public void setContent(List<ClaudeMessageContent> content) {
+    this.content = content;
+  }
+}
