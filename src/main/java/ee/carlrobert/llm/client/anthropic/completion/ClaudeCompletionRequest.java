@@ -22,4 +22,20 @@ public class ClaudeCompletionRequest implements CompletionRequest {
     return model;
   }
 
-  public vo
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public String getSystem() {
+    return system;
+  }
+
+  public void setSystem(String system) {
+    this.system = system;
+  }
+
+  public List<ClaudeCompletionMessage> getMessages() {
+    return messages;
+  }
+
+  public
