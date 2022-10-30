@@ -40,3 +40,19 @@ public class ClaudeCompletionResponse implements CompletionResponse {
 
   public List<ClaudeCompletionResponseMessage> getContent() {
     return content;
+  }
+
+  public void setContent(
+      List<ClaudeCompletionResponseMessage> content) {
+    this.content = content;
+  }
+
+  public ClaudeCompletionResponseUsage getUsage() {
+    return usage;
+  }
+
+  public void setUsage(
+      ClaudeCompletionResponseUsage usage) {
+    this.usage = usage;
+  }
+}
