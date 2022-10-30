@@ -51,4 +51,19 @@ public class ClaudeCompletionRequest implements CompletionRequest {
   }
 
   public boolean isStream() {
-   
+    return stream;
+  }
+
+  public void setStream(boolean stream) {
+    this.stream = stream;
+  }
+
+  public double getTemperature() {
+    return temperature;
+  }
+
+  public void setTemperature(double temperature) {
+    this.temperature = temperature;
+  }
+
+  publ
