@@ -66,4 +66,19 @@ public class ClaudeCompletionRequest implements CompletionRequest {
     this.temperature = temperature;
   }
 
-  publ
+  public int getTopK() {
+    return topK;
+  }
+
+  public void setTopK(int topK) {
+    this.topK = topK;
+  }
+
+  public int getTopP() {
+    return topP;
+  }
+
+  public void setTopP(int topP) {
+    this.topP = topP;
+  }
+}

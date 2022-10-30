@@ -1,0 +1,42 @@
+
+package ee.carlrobert.llm.client.anthropic.completion;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ee.carlrobert.llm.completion.CompletionResponse;
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ClaudeCompletionResponse implements CompletionResponse {
+
+  private String id;
+  private String type;
+  private String role;
+  private List<ClaudeCompletionResponseMessage> content;
+  private ClaudeCompletionResponseUsage usage;
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public List<ClaudeCompletionResponseMessage> getContent() {
+    return content;
