@@ -38,4 +38,17 @@ public class ClaudeCompletionRequest implements CompletionRequest {
     return messages;
   }
 
-  public
+  public void setMessages(List<ClaudeCompletionMessage> messages) {
+    this.messages = messages;
+  }
+
+  public int getMaxTokens() {
+    return maxTokens;
+  }
+
+  public void setMaxTokens(int maxTokens) {
+    this.maxTokens = maxTokens;
+  }
+
+  public boolean isStream() {
+   
