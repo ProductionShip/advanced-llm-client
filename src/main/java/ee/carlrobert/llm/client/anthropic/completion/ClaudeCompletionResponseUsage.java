@@ -1,1 +1,7 @@
-package ee
+package ee.carlrobert.llm.client.anthropic.completion;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ClaudeCompletionResponseUsage {
