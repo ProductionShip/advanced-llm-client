@@ -5,3 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClaudeCompletionResponseUsage {
+
+  @JsonProperty("input_tokens")
+  private int inputTokens;
+  @JsonProperty("output_tokens")
+  private int outputTokens;
+
+  public int getInputTokens() {
+    return inputTokens;
+  }
+
+  public void setInputTokens(int inputTokens) {
+    this.inputTokens = inputTokens;
+  }
+
+  public int getOu
