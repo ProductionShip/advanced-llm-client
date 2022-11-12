@@ -19,4 +19,11 @@ public class ClaudeCompletionResponseUsage {
     this.inputTokens = inputTokens;
   }
 
-  public int getOu
+  public int getOutputTokens() {
+    return outputTokens;
+  }
+
+  public void setOutputTokens(int outputTokens) {
+    this.outputTokens = outputTokens;
+  }
+}
