@@ -26,4 +26,12 @@ public class ClaudeCompletionStreamResponse implements CompletionResponse {
     this.index = index;
   }
 
-  public ClaudeCompletionRespon
+  public ClaudeCompletionResponseMessage getDelta() {
+    return delta;
+  }
+
+  public void setDelta(
+      ClaudeCompletionResponseMessage delta) {
+    this.delta = delta;
+  }
+}
