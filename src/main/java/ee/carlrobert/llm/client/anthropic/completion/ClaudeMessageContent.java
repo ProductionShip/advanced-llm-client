@@ -9,4 +9,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = ClaudeMessageTextContent.class, name = "text"),
     @JsonSubTypes.Type(value = ClaudeMessageImageContent.class, name = "image")})
-p
+public abstract class ClaudeMessageContent {
+}
