@@ -18,4 +18,6 @@ public class ClaudeMessageImageContent extends ClaudeMessageContent {
   }
 
   public ClaudeMessageImageContent(ClaudeSource source) {
-  
+    this.source = source;
+  }
+}
