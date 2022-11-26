@@ -58,3 +58,77 @@ public class AzureClient {
   }
 
   public Request buildHttpRequest(OpenAIChatCompletionRequest completionRequest) {
+    var headers = new HashMap<>(getRequiredHeaders());
+    if (completionRequest.isStream()) {
+      headers.put("Accept", "text/event-stream");
+    }
+    try {
+      return new Request.Builder()
+          .url(url + getChatCompletionPath(completionRequest))
+          .headers(Headers.of(headers))
+          .post(RequestBody.create(
+              OBJECT_MAPPER
+                  .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                  .writeValueAsString(completionRequest),
+              APPLICATION_JSON))
+          .build();
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException("Unable to process request", e);
+    }
+  }
+
+  private Map<String, String> getRequiredHeaders() {
+    var headers = new HashMap<String, String>();
+    headers.put("X-LLM-Application-Tag", "codegpt");
+    if (activeDirectoryAuthentication) {
+      headers.put("Authorization", "Bearer " + apiKey);
+    } else {
+      headers.put("api-key", apiKey);
+    }
+    return headers;
+  }
+
+  private String getChatCompletionPath(OpenAIChatCompletionRequest request) {
+    return String.format(
+        request.getOverriddenPath() == null
+            ? "/openai/deployments/%s/chat/completions?api-version=%s"
+            : request.getOverriddenPath(),
+        requestParams.getDeploymentId(),
+        requestParams.getApiVersion());
+  }
+
+  private OpenAIChatCompletionEventSourceListener getEventSourceListener(
+      CompletionEventListener<String> listener) {
+    return new OpenAIChatCompletionEventSourceListener(listener) {
+      @Override
+      protected ErrorDetails getErrorDetails(String data) throws JsonProcessingException {
+        return OBJECT_MAPPER.readValue(data, AzureApiResponseError.class).getError();
+      }
+    };
+  }
+
+  public static class Builder {
+
+    private final String apiKey;
+    private final AzureCompletionRequestParams requestParams;
+    private boolean activeDirectoryAuthentication;
+
+    public Builder(String apiKey, AzureCompletionRequestParams requestParams) {
+      this.apiKey = apiKey;
+      this.requestParams = requestParams;
+    }
+
+    public Builder setActiveDirectoryAuthentication(boolean activeDirectoryAuthentication) {
+      this.activeDirectoryAuthentication = activeDirectoryAuthentication;
+      return this;
+    }
+
+    public AzureClient build(OkHttpClient.Builder builder) {
+      return new AzureClient(this, builder);
+    }
+
+    public AzureClient build() {
+      return build(new OkHttpClient.Builder());
+    }
+  }
+}
