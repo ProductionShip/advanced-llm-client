@@ -6,3 +6,14 @@ public class AzureCompletionRequestParams {
   private final String deploymentId;
   private final String apiVersion;
 
+  public AzureCompletionRequestParams(String resourceName, String deploymentId, String apiVersion) {
+    this.resourceName = resourceName;
+    this.deploymentId = deploymentId;
+    this.apiVersion = apiVersion;
+  }
+
+  public String getResourceName() {
+    return resourceName;
+  }
+
+  public Str
