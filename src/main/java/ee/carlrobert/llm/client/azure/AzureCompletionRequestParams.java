@@ -16,4 +16,11 @@ public class AzureCompletionRequestParams {
     return resourceName;
   }
 
-  public Str
+  public String getDeploymentId() {
+    return deploymentId;
+  }
+
+  public String getApiVersion() {
+    return apiVersion;
+  }
+}
