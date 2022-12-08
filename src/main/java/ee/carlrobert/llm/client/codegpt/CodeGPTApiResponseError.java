@@ -6,4 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.carlrobert.llm.client.openai.completion.BaseApiResponseError;
 import ee.carlrobert.llm.client.openai.completion.ErrorDetails;
 
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CodeGPTApiResponseError implements BaseApiResponseError {
+
+  private final int status;
+  private final String detail;
+
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public CodeGPTApiResponseError(
+      @JsonProperty("status") int status,
+  
