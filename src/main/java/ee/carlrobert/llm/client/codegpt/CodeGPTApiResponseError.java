@@ -15,4 +15,19 @@ public class CodeGPTApiResponseError implements BaseApiResponseError {
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public CodeGPTApiResponseError(
       @JsonProperty("status") int status,
-  
+      @JsonProperty("detail") String detail) {
+    this.status = status;
+    this.detail = detail;
+  }
+
+  public int getStatus() {
+    return status;
+  }
+
+  public String getDetail() {
+    return detail;
+  }
+
+  @Override
+  public ErrorDetails getError() {
+    return new ErrorDetail
