@@ -30,4 +30,6 @@ public class CodeGPTApiResponseError implements BaseApiResponseError {
 
   @Override
   public ErrorDetails getError() {
-    return new ErrorDetail
+    return new ErrorDetails(detail);
+  }
+}
