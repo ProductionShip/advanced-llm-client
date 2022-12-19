@@ -10,4 +10,10 @@ public class CodeGPTUserDetails {
 
   private final String fullName;
   private final PricingPlan pricingPlan;
-  private fina
+  private final List<AvailableModel> availableModels;
+
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public CodeGPTUserDetails(
+      @JsonProperty("fullName") String fullName,
+      @JsonProperty("pricingPlan") PricingPlan pricingPlan,
+      @JsonProperty("avai
