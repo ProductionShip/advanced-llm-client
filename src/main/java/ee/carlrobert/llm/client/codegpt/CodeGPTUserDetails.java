@@ -16,4 +16,15 @@ public class CodeGPTUserDetails {
   public CodeGPTUserDetails(
       @JsonProperty("fullName") String fullName,
       @JsonProperty("pricingPlan") PricingPlan pricingPlan,
-      @JsonProperty("avai
+      @JsonProperty("availableModels") List<AvailableModel> availableModels) {
+    this.fullName = fullName;
+    this.pricingPlan = pricingPlan;
+    this.availableModels = availableModels;
+  }
+
+  public String getFullName() {
+    return fullName;
+  }
+
+  public PricingPlan getPricingPlan() {
+    re
