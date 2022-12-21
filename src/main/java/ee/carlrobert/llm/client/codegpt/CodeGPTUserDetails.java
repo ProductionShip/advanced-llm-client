@@ -27,4 +27,10 @@ public class CodeGPTUserDetails {
   }
 
   public PricingPlan getPricingPlan() {
-    re
+    return pricingPlan;
+  }
+
+  public List<AvailableModel> getAvailableModels() {
+    return availableModels;
+  }
+}
