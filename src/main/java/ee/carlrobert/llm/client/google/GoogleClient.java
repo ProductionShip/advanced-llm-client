@@ -8,4 +8,8 @@ import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import ee.carlrobert.llm.PropertiesLoader;
 import ee.carlrobert.llm.client.DeserializationUtil;
-import ee.carlrobert.llm.cli
+import ee.carlrobert.llm.client.google.completion.ApiResponseError;
+import ee.carlrobert.llm.client.google.completion.GoogleCompletionContent;
+import ee.carlrobert.llm.client.google.completion.GoogleCompletionRequest;
+import ee.carlrobert.llm.client.google.completion.GoogleCompletionResponse;
+import ee.c
