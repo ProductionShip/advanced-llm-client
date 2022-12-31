@@ -12,4 +12,7 @@ import ee.carlrobert.llm.client.google.completion.ApiResponseError;
 import ee.carlrobert.llm.client.google.completion.GoogleCompletionContent;
 import ee.carlrobert.llm.client.google.completion.GoogleCompletionRequest;
 import ee.carlrobert.llm.client.google.completion.GoogleCompletionResponse;
-import ee.c
+import ee.carlrobert.llm.client.google.completion.GoogleCompletionResponse.Candidate;
+import ee.carlrobert.llm.client.google.completion.GoogleContentPart;
+import ee.carlrobert.llm.client.google.embedding.ContentEmbedding;
+import ee.carlrobert.llm.client.google.embedding.GoogleBatchEmbeddingRespo
