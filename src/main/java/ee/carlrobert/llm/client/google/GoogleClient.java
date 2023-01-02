@@ -15,4 +15,8 @@ import ee.carlrobert.llm.client.google.completion.GoogleCompletionResponse;
 import ee.carlrobert.llm.client.google.completion.GoogleCompletionResponse.Candidate;
 import ee.carlrobert.llm.client.google.completion.GoogleContentPart;
 import ee.carlrobert.llm.client.google.embedding.ContentEmbedding;
-import ee.carlrobert.llm.client.google.embedding.GoogleBatchEmbeddingRespo
+import ee.carlrobert.llm.client.google.embedding.GoogleBatchEmbeddingResponse;
+import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingContentRequest;
+import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingRequest;
+import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingResponse;
+import ee.carlrobert.llm.client.google.mod
