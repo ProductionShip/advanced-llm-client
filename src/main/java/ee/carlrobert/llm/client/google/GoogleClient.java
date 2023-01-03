@@ -19,4 +19,8 @@ import ee.carlrobert.llm.client.google.embedding.GoogleBatchEmbeddingResponse;
 import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingContentRequest;
 import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingRequest;
 import ee.carlrobert.llm.client.google.embedding.GoogleEmbeddingResponse;
-import ee.carlrobert.llm.client.google.mod
+import ee.carlrobert.llm.client.google.models.GoogleModel;
+import ee.carlrobert.llm.client.google.models.GoogleModelsResponse;
+import ee.carlrobert.llm.client.google.models.GoogleModelsResponse.GeminiModelDetails;
+import ee.carlrobert.llm.client.google.models.GoogleTokensResponse;
+import ee.carlrobert.l
