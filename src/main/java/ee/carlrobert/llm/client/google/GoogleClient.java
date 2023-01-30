@@ -39,4 +39,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.sse.EventSource;
-import okhttp3.sse.Event
+import okhttp3.sse.EventSources;
+
+public class GoogleClient {
+
+  private static final MediaType APPLICATION_JSON = MediaType.parse("application/json");
+
+  private final OkHttpClient httpClient;
+  private final String host;
+  private final String apiKey;
+
+  protected GoogleClient(Builder builder, OkH
