@@ -29,4 +29,14 @@ import ee.carlrobert.llm.completion.CompletionEventSourceListener;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.sse.EventSource;
+import okhttp3.sse.Event
