@@ -23,4 +23,10 @@ import ee.carlrobert.llm.client.google.models.GoogleModel;
 import ee.carlrobert.llm.client.google.models.GoogleModelsResponse;
 import ee.carlrobert.llm.client.google.models.GoogleModelsResponse.GeminiModelDetails;
 import ee.carlrobert.llm.client.google.models.GoogleTokensResponse;
-import ee.carlrobert.l
+import ee.carlrobert.llm.client.openai.completion.ErrorDetails;
+import ee.carlrobert.llm.completion.CompletionEventListener;
+import ee.carlrobert.llm.completion.CompletionEventSourceListener;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map
