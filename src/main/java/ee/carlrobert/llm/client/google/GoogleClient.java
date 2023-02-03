@@ -49,4 +49,13 @@ public class GoogleClient {
   private final String host;
   private final String apiKey;
 
-  protected GoogleClient(Builder builder, OkH
+  protected GoogleClient(Builder builder, OkHttpClient.Builder httpClientBuilder) {
+    this.httpClient = httpClientBuilder.build();
+    this.host = builder.host;
+    this.apiKey = builder.apiKey;
+  }
+
+  public EventSource getChatCompletionAsync(
+      GoogleCompletionRequest request,
+      GoogleModel model,
+      Complet
