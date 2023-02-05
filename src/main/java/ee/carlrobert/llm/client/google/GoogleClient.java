@@ -58,4 +58,11 @@ public class GoogleClient {
   public EventSource getChatCompletionAsync(
       GoogleCompletionRequest request,
       GoogleModel model,
-      Complet
+      CompletionEventListener<String> eventListener) {
+    return getChatCompletionAsync(request, model.getCode(), eventListener);
+  }
+
+  public EventSource getChatCompletionAsync(
+      GoogleCompletionRequest request,
+      String model,
+      CompletionEventListener<String> eventListener) {
