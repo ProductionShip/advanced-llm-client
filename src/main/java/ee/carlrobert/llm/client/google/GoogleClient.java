@@ -73,4 +73,13 @@ public class GoogleClient {
 
   /**
    * <a
-   * href="https://ai.google.dev/api/rest/v1/models/gene
+   * href="https://ai.google.dev/api/rest/v1/models/generateContent?authuser=1">GenerateContent</a>.
+   */
+  public GoogleCompletionResponse getChatCompletion(GoogleCompletionRequest request,
+      GoogleModel model) {
+    return getChatCompletion(request, model.getCode());
+  }
+
+  /**
+   * <a
+   * href="htt
