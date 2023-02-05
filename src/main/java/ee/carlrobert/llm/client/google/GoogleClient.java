@@ -66,3 +66,11 @@ public class GoogleClient {
       GoogleCompletionRequest request,
       String model,
       CompletionEventListener<String> eventListener) {
+    return EventSources.createFactory(httpClient)
+        .newEventSource(buildPostRequest(request, model, "streamGenerateContent", true),
+            getEventSourceListener(eventListener));
+  }
+
+  /**
+   * <a
+   * href="https://ai.google.dev/api/rest/v1/models/gene
