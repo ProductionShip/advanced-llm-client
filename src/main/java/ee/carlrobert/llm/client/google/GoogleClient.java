@@ -90,4 +90,13 @@ public class GoogleClient {
       return DeserializationUtil.mapResponse(response, GoogleCompletionResponse.class);
     } catch (IOException e) {
       throw new RuntimeException(
-          "Could not get llama completion for
+          "Could not get llama completion for the given request:\n" + request, e);
+    }
+  }
+
+  public double[] getEmbedding(String text, GoogleModel model) {
+    return getEmbedding(List.of(text), model.getCode());
+  }
+
+  public double[] getEmbedding(String text, String model) {
+    return getEmbedding(List.of(text), mod
