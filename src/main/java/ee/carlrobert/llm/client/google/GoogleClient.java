@@ -99,4 +99,12 @@ public class GoogleClient {
   }
 
   public double[] getEmbedding(String text, String model) {
-    return getEmbedding(List.of(text), mod
+    return getEmbedding(List.of(text), model);
+  }
+
+  public double[] getEmbedding(List<String> texts, GoogleModel model) {
+    return getEmbedding(texts, model.getCode());
+  }
+
+  public double[] getEmbedding(List<String> texts, String model) {
+    return getEmbedding(new GoogleEmbeddingRequest.Builder(new G
