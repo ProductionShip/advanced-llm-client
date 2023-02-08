@@ -82,4 +82,8 @@ public class GoogleClient {
 
   /**
    * <a
-   * href="htt
+   * href="https://ai.google.dev/api/rest/v1/models/generateContent?authuser=1">GenerateContent</a>.
+   */
+  public GoogleCompletionResponse getChatCompletion(GoogleCompletionRequest request, String model) {
+    try (var response = httpClient.newCall(
+        buildPostRequest(request,
