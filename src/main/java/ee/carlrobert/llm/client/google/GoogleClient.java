@@ -86,4 +86,8 @@ public class GoogleClient {
    */
   public GoogleCompletionResponse getChatCompletion(GoogleCompletionRequest request, String model) {
     try (var response = httpClient.newCall(
-        buildPostRequest(request,
+        buildPostRequest(request, model, "generateContent", false)).execute()) {
+      return DeserializationUtil.mapResponse(response, GoogleCompletionResponse.class);
+    } catch (IOException e) {
+      throw new RuntimeException(
+          "Could not get llama completion for
