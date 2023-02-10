@@ -107,4 +107,12 @@ public class GoogleClient {
   }
 
   public double[] getEmbedding(List<String> texts, String model) {
-    return getEmbedding(new GoogleEmbeddingRequest.Builder(new G
+    return getEmbedding(new GoogleEmbeddingRequest.Builder(new GoogleCompletionContent(texts))
+        .build(), model);
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/embedContent?authuser=1">EmbedContent</a>.
+   */
+  public double[] getEmbedding(GoogleEmbeddingRequest request, GoogleModel model) {
+    return getEmbedd
