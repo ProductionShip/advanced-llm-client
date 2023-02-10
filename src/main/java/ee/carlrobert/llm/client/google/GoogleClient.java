@@ -115,4 +115,11 @@ public class GoogleClient {
    * <a href="https://ai.google.dev/api/rest/v1/models/embedContent?authuser=1">EmbedContent</a>.
    */
   public double[] getEmbedding(GoogleEmbeddingRequest request, GoogleModel model) {
-    return getEmbedd
+    return getEmbedding(request, model.getCode());
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/embedContent?authuser=1">EmbedContent</a>.
+   */
+  public double[] getEmbedding(GoogleEmbeddingRequest request, String model) {
+    try (var response = httpC
