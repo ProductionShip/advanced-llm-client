@@ -122,4 +122,11 @@ public class GoogleClient {
    * <a href="https://ai.google.dev/api/rest/v1/models/embedContent?authuser=1">EmbedContent</a>.
    */
   public double[] getEmbedding(GoogleEmbeddingRequest request, String model) {
-    try (var response = httpC
+    try (var response = httpClient
+        .newCall(buildPostRequest(request, model, "embedContent", false))
+        .execute()) {
+
+      return Optional.ofNullable(
+              DeserializationUtil.mapResponse(response, GoogleEmbeddingResponse.class))
+          .map(GoogleEmbeddingResponse::getEmbedding)
+         
