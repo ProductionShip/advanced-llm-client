@@ -139,4 +139,13 @@ public class GoogleClient {
 
   /**
    * <a
-   * href="https://ai.google.dev/api/rest/v1/models/batchEmbedContents?authuser=1">BatchEmbedContents</a
+   * href="https://ai.google.dev/api/rest/v1/models/batchEmbedContents?authuser=1">BatchEmbedContents</a>.
+   */
+  public List<double[]> getBatchEmbeddings(
+      List<GoogleEmbeddingContentRequest> requests,
+      GoogleModel model) {
+    return getBatchEmbeddings(requests, model.getCode());
+  }
+
+  public List<double[]> getBatchEmbeddings(
+      List<GoogleEmbedd
