@@ -129,4 +129,14 @@ public class GoogleClient {
       return Optional.ofNullable(
               DeserializationUtil.mapResponse(response, GoogleEmbeddingResponse.class))
           .map(GoogleEmbeddingResponse::getEmbedding)
-         
+          .map(ContentEmbedding::getValues)
+          .orElse(null);
+
+    } catch (IOException e) {
+      throw new RuntimeException("Unable to fetch embedding", e);
+    }
+  }
+
+  /**
+   * <a
+   * href="https://ai.google.dev/api/rest/v1/models/batchEmbedContents?authuser=1">BatchEmbedContents</a
