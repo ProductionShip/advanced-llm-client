@@ -148,4 +148,10 @@ public class GoogleClient {
   }
 
   public List<double[]> getBatchEmbeddings(
-      List<GoogleEmbedd
+      List<GoogleEmbeddingContentRequest> requests,
+      String model) {
+    try (var response = httpClient
+        .newCall(buildPostRequest(Map.of("requests", requests), model, "batchEmbedContents", false))
+        .execute()) {
+
+   
