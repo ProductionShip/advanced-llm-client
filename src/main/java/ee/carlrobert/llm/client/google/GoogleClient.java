@@ -154,4 +154,9 @@ public class GoogleClient {
         .newCall(buildPostRequest(Map.of("requests", requests), model, "batchEmbedContents", false))
         .execute()) {
 
-   
+      var embeddings = Optional.ofNullable(
+              DeserializationUtil.mapResponse(response, GoogleBatchEmbeddingResponse.class))
+          .map(GoogleBatchEmbeddingResponse::getEmbeddings)
+          .stream()
+          .flatMap(Collection::stream)
+          .filte
