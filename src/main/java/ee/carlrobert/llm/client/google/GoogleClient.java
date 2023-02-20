@@ -159,4 +159,11 @@ public class GoogleClient {
           .map(GoogleBatchEmbeddingResponse::getEmbeddings)
           .stream()
           .flatMap(Collection::stream)
-          .filte
+          .filter(Objects::nonNull)
+          .map(ContentEmbedding::getValues)
+          .filter(Objects::nonNull)
+          .collect(toList());
+      return embeddings.isEmpty() ? null : embeddings;
+
+    } catch (IOException e) {
+      throw new RuntimeException("Unable to fetch emb
