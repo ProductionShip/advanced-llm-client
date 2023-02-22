@@ -166,4 +166,14 @@ public class GoogleClient {
       return embeddings.isEmpty() ? null : embeddings;
 
     } catch (IOException e) {
-      throw new RuntimeException("Unable to fetch emb
+      throw new RuntimeException("Unable to fetch embedding", e);
+    }
+  }
+
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/list?authuser=1">Models List</a>.
+   */
+  public GoogleModelsResponse getModels(Integer pageSize, String pageToken) {
+    String url = host + "/v1/models";
+    HttpUrl.Builder urlBuilder 
