@@ -189,4 +189,13 @@ public class GoogleClient {
       return DeserializationUtil.mapResponse(response, GoogleModelsResponse.class);
 
     } catch (IOException e) {
-      throw new RuntimeException("Unable to fetch mo
+      throw new RuntimeException("Unable to fetch models", e);
+    }
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/get?authuser=1">Get Model</a>.
+   */
+  public GeminiModelDetails getModel(String name) {
+    String url = host + "/v1/models/" + name;
+    try (var response = httpClient.
