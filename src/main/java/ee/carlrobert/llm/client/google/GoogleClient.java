@@ -183,4 +183,10 @@ public class GoogleClient {
     if (pageToken != null) {
       urlBuilder.addQueryParameter("pageToken", pageToken);
     }
-    try (var response =
+    try (var response = httpClient
+        .newCall(defaultRequestBuilder(urlBuilder, false).get().build())
+        .execute()) {
+      return DeserializationUtil.mapResponse(response, GoogleModelsResponse.class);
+
+    } catch (IOException e) {
+      throw new RuntimeException("Unable to fetch mo
