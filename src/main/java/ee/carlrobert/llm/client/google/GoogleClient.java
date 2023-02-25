@@ -176,4 +176,11 @@ public class GoogleClient {
    */
   public GoogleModelsResponse getModels(Integer pageSize, String pageToken) {
     String url = host + "/v1/models";
-    HttpUrl.Builder urlBuilder 
+    HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
+    if (pageSize != null) {
+      urlBuilder.addQueryParameter("pageSize", pageSize.toString());
+    }
+    if (pageToken != null) {
+      urlBuilder.addQueryParameter("pageToken", pageToken);
+    }
+    try (var response =
