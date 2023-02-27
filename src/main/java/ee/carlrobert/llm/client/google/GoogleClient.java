@@ -198,4 +198,9 @@ public class GoogleClient {
    */
   public GeminiModelDetails getModel(String name) {
     String url = host + "/v1/models/" + name;
-    try (var response = httpClient.
+    try (var response = httpClient.newCall(defaultRequestBuilder(url, false).get().build())
+        .execute()) {
+      return DeserializationUtil.mapResponse(response, GeminiModelDetails.class);
+    } catch (IOException e) {
+      throw new RuntimeException("Unable to fetch model", e);
+    
