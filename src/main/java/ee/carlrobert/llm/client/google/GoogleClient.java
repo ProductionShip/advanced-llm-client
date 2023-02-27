@@ -203,4 +203,12 @@ public class GoogleClient {
       return DeserializationUtil.mapResponse(response, GeminiModelDetails.class);
     } catch (IOException e) {
       throw new RuntimeException("Unable to fetch model", e);
-    
+    }
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/countTokens?authuser=1">CountTokens</a>.
+   */
+  public GoogleTokensResponse getCountTokens(List<GoogleCompletionContent> contents,
+      GoogleModel model) {
+    return getCountTok
