@@ -223,4 +223,12 @@ public class GoogleClient {
         .execute()) {
       return DeserializationUtil.mapResponse(response, GoogleTokensResponse.class);
     } catch (IOException e) {
-      throw new RuntimeExcep
+      throw new RuntimeException("Unable to fetch tokens count", e);
+    }
+  }
+
+  private Request buildPostRequest(Object request, String model, String path,
+      boolean stream) {
+    try {
+      Request.Builder builder = defaultRequestBuilder(
+          host + format("/v1/models/%s:%s", model, path), str
