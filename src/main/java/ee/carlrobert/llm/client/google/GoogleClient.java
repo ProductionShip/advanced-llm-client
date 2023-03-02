@@ -211,4 +211,12 @@ public class GoogleClient {
    */
   public GoogleTokensResponse getCountTokens(List<GoogleCompletionContent> contents,
       GoogleModel model) {
-    return getCountTok
+    return getCountTokens(contents, model.getCode());
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/models/countTokens?authuser=1">CountTokens</a>.
+   */
+  public GoogleTokensResponse getCountTokens(List<GoogleCompletionContent> contents, String model) {
+    try (var response = httpClient
+      
