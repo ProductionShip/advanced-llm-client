@@ -219,4 +219,8 @@ public class GoogleClient {
    */
   public GoogleTokensResponse getCountTokens(List<GoogleCompletionContent> contents, String model) {
     try (var response = httpClient
-      
+        .newCall(buildPostRequest(Map.of("contents", contents), model, "countTokens", false))
+        .execute()) {
+      return DeserializationUtil.mapResponse(response, GoogleTokensResponse.class);
+    } catch (IOException e) {
+      throw new RuntimeExcep
