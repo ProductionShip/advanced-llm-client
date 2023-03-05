@@ -239,4 +239,10 @@ public class GoogleClient {
     }
   }
 
-  private Request.Builder defaultRequestBuilder(String 
+  private Request.Builder defaultRequestBuilder(String url, boolean stream) {
+    return defaultRequestBuilder(HttpUrl.parse(url).newBuilder(), stream);
+  }
+
+  private Request.Builder defaultRequestBuilder(HttpUrl.Builder url, boolean stream) {
+    if (apiKey != null && !apiKey.isEmpty()) {
+      url.addQuer
