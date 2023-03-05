@@ -231,4 +231,12 @@ public class GoogleClient {
       boolean stream) {
     try {
       Request.Builder builder = defaultRequestBuilder(
-          host + format("/v1/models/%s:%s", model, path), str
+          host + format("/v1/models/%s:%s", model, path), stream)
+          .post(RequestBody.create(OBJECT_MAPPER.writeValueAsString(request), APPLICATION_JSON));
+      return builder.build();
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private Request.Builder defaultRequestBuilder(String 
