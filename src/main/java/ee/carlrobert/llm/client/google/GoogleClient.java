@@ -245,4 +245,12 @@ public class GoogleClient {
 
   private Request.Builder defaultRequestBuilder(HttpUrl.Builder url, boolean stream) {
     if (apiKey != null && !apiKey.isEmpty()) {
-      url.addQuer
+      url.addQueryParameter("key", apiKey);
+    }
+    // see https://ai.google.dev/gemini-api/docs/get-started/rest#stream_generate_content
+    if (stream) {
+      url.addQueryParameter("alt", "sse");
+    }
+    return new Request.Builder()
+        .url(url.build())
+        .header("Cache
