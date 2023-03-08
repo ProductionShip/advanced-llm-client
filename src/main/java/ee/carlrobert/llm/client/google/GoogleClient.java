@@ -253,4 +253,10 @@ public class GoogleClient {
     }
     return new Request.Builder()
         .url(url.build())
-        .header("Cache
+        .header("Cache-Control", "no-cache")
+        .header("Content-Type", "application/json")
+        .header("Accept", stream ? "text/event-stream" : "text/json");
+  }
+
+  private CompletionEventSourceListener<String> getEventSourceListener(
+      CompletionEventListener<String> 
