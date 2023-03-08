@@ -259,4 +259,10 @@ public class GoogleClient {
   }
 
   private CompletionEventSourceListener<String> getEventSourceListener(
-      CompletionEventListener<String> 
+      CompletionEventListener<String> eventListener) {
+    return new CompletionEventSourceListener<>(eventListener) {
+      @Override
+      protected String getMessage(String data) {
+        try {
+          var candidates = OBJECT_MAPPER.readValue(data, GoogleCompletionResponse.class)
+              .getCandi
