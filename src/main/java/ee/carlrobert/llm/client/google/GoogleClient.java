@@ -265,4 +265,9 @@ public class GoogleClient {
       protected String getMessage(String data) {
         try {
           var candidates = OBJECT_MAPPER.readValue(data, GoogleCompletionResponse.class)
-              .getCandi
+              .getCandidates();
+          return (candidates == null ? Stream.<Candidate>empty() : candidates.stream())
+              .filter(Objects::nonNull)
+              .flatMap(candidate -> candidate.getContent().getParts().stream())
+              .filter(Objects::nonNull)
+              .findFirst(
