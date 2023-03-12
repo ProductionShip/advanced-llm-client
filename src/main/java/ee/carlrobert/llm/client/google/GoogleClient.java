@@ -270,4 +270,15 @@ public class GoogleClient {
               .filter(Objects::nonNull)
               .flatMap(candidate -> candidate.getContent().getParts().stream())
               .filter(Objects::nonNull)
-              .findFirst(
+              .findFirst()
+              .map(GoogleContentPart::getText)
+              .orElse("");
+        } catch (JacksonException e) {
+          // ignore
+          System.out.println();
+        }
+        return "";
+      }
+
+      @Override
+      protected ErrorDet
