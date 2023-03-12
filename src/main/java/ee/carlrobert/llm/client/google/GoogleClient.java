@@ -281,4 +281,8 @@ public class GoogleClient {
       }
 
       @Override
-      protected ErrorDet
+      protected ErrorDetails getErrorDetails(String data) throws JsonProcessingException {
+        var googleError = OBJECT_MAPPER.readValue(data, ApiResponseError.class).getError();
+        return googleError == null ? null
+            : new ErrorDetails(googleError.getMessage(), googleError.getStatus(), null,
+                g
