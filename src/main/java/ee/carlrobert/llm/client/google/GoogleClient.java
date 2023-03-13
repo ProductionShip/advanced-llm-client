@@ -299,4 +299,15 @@ public class GoogleClient {
       this.apiKey = apiKey;
     }
 
-    public Builder setHo
+    public Builder setHost(String host) {
+      this.host = host;
+      return this;
+    }
+
+    public Builder setApiKey(String apiKey) {
+      this.apiKey = apiKey;
+      return this;
+    }
+
+    public GoogleClient build(OkHttpClient.Builder builder) {
+      return new GoogleClient(thi
