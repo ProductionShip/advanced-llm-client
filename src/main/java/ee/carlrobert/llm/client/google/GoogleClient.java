@@ -310,4 +310,11 @@ public class GoogleClient {
     }
 
     public GoogleClient build(OkHttpClient.Builder builder) {
-      return new GoogleClient(thi
+      return new GoogleClient(this, builder);
+    }
+
+    public GoogleClient build() {
+      return build(new OkHttpClient.Builder());
+    }
+  }
+}
