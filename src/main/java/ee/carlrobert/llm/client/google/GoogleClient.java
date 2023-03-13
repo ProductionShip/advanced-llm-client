@@ -285,4 +285,18 @@ public class GoogleClient {
         var googleError = OBJECT_MAPPER.readValue(data, ApiResponseError.class).getError();
         return googleError == null ? null
             : new ErrorDetails(googleError.getMessage(), googleError.getStatus(), null,
-                g
+                googleError.getCode());
+      }
+    };
+  }
+
+  public static class Builder {
+
+    private String host = PropertiesLoader.getValue("google.baseUrl");
+    private String apiKey;
+
+    public Builder(String apiKey) {
+      this.apiKey = apiKey;
+    }
+
+    public Builder setHo
