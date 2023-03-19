@@ -28,4 +28,19 @@ public class ErrorDetails extends BaseError {
   }
 
   public String getMessage() {
-    return mes
+    return message;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+
+  public String getCode() {
+    return code;
+  }
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", ErrorDetails.class.getSimpleName() + "[", "]")
+        .add("mes
