@@ -43,4 +43,9 @@ public class ErrorDetails extends BaseError {
   @Override
   public String toString() {
     return new StringJoiner(", ", ErrorDetails.class.getSimpleName() + "[", "]")
-        .add("mes
+        .add("message='" + message + "'")
+        .add("status='" + status + "'")
+        .add("code='" + code + "'")
+        .toString();
+  }
+}
