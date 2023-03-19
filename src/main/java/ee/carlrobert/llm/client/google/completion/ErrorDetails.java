@@ -19,4 +19,13 @@ public class ErrorDetails extends BaseError {
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public ErrorDetails(
-      @Js
+      @JsonProperty("message") String message,
+      @JsonProperty("status") String status,
+      @JsonProperty("code") String code) {
+    this.message = message;
+    this.status = status;
+    this.code = code;
+  }
+
+  public String getMessage() {
+    return mes
