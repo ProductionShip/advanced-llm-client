@@ -91,3 +91,14 @@ public class GoogleCompletionRequest implements CompletionRequest {
       this.safetySettings = safetySettings;
       return this;
     }
+
+    public Builder generationConfig(GoogleGenerationConfig generationConfig) {
+      this.generationConfig = generationConfig;
+      return this;
+    }
+
+    public GoogleCompletionRequest build() {
+      return new GoogleCompletionRequest(this);
+    }
+  }
+}
