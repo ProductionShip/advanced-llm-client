@@ -40,4 +40,15 @@ public class GoogleContentPart {
   }
 
   /**
-   * <
+   * <a href="https://ai.google.dev/api/rest/v1/Content?authuser=1#Blob">Blob</a>.
+   */
+  public static class Blob {
+
+    public static final Encoder ENCODER = Base64.getEncoder();
+
+    private String mimeType;
+
+    /**
+     * base64 encoded.
+     */
+    private 
