@@ -235,3 +235,7 @@ public class GoogleCompletionResponse {
 
     public void setSafetyRatings(
         List<SafetyRating> safetyRatings) {
+      this.safetyRatings = safetyRatings;
+    }
+  }
+}
