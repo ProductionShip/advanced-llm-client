@@ -23,4 +23,21 @@ public class GoogleContentPart {
     this.inlineData = inlineData;
   }
 
-  public S
+  public String getText() {
+    return text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public Blob getInlineData() {
+    return inlineData;
+  }
+
+  public void setInlineData(Blob inlineData) {
+    this.inlineData = inlineData;
+  }
+
+  /**
+   * <
