@@ -51,4 +51,15 @@ public class GoogleContentPart {
     /**
      * base64 encoded.
      */
-    private 
+    private String data;
+
+    public Blob() {
+    }
+
+    public Blob(String mimeType, byte[] data) {
+      this.mimeType = mimeType;
+      this.data = ENCODER.encodeToString(data);
+    }
+
+    public Blob(String mimeType, String base64EncodedData) {
+      this.mimeType = mimeType;
