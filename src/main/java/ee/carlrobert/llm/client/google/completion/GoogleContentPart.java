@@ -63,3 +63,19 @@ public class GoogleContentPart {
 
     public Blob(String mimeType, String base64EncodedData) {
       this.mimeType = mimeType;
+      this.data = base64EncodedData;
+    }
+
+    public String getMimeType() {
+      return mimeType;
+    }
+
+    public void setMimeType(String mimeType) {
+      this.mimeType = mimeType;
+    }
+
+    public String getData() {
+      return data;
+    }
+
+    public void setD
