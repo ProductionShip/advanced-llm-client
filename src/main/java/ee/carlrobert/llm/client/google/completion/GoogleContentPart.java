@@ -78,4 +78,8 @@ public class GoogleContentPart {
       return data;
     }
 
-    public void setD
+    public void setData(String data) {
+      this.data = data;
+    }
+  }
+}
