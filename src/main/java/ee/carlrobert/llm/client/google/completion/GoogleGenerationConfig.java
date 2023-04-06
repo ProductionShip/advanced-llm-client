@@ -40,4 +40,18 @@ public class GoogleGenerationConfig {
     return maxOutputTokens;
   }
 
-  public double getTopP
+  public double getTopP() {
+    return topP;
+  }
+
+  public int getTopK() {
+    return topK;
+  }
+
+  public static class Builder {
+
+    private List<String> stopSequences;
+    private int candidateCount = 1;
+    private double temperature = 0.9;
+    private int maxOutputTokens = 256;
+    priva
