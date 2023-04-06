@@ -16,4 +16,13 @@ public class GoogleGenerationConfig {
   private final int topK;
 
   public GoogleGenerationConfig(Builder builder) {
-    this.stopSeque
+    this.stopSequences = builder.stopSequences;
+    this.candidateCount = builder.candidateCount;
+    this.temperature = builder.temperature;
+    this.maxOutputTokens = builder.maxOutputTokens;
+    this.topP = builder.topP;
+    this.topK = builder.topK;
+  }
+
+  public List<String> getStopSequences() {
+ 
