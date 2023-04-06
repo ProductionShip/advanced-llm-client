@@ -25,4 +25,19 @@ public class GoogleGenerationConfig {
   }
 
   public List<String> getStopSequences() {
- 
+    return stopSequences;
+  }
+
+  public int getCandidateCount() {
+    return candidateCount;
+  }
+
+  public double getTemperature() {
+    return temperature;
+  }
+
+  public int getMaxOutputTokens() {
+    return maxOutputTokens;
+  }
+
+  public double getTopP
