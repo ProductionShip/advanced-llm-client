@@ -54,4 +54,13 @@ public class GoogleGenerationConfig {
     private int candidateCount = 1;
     private double temperature = 0.9;
     private int maxOutputTokens = 256;
-    priva
+    private double topP = 0.9;
+    private int topK = 40;
+
+    public Builder stopSequences(List<String> stopSequences) {
+      this.stopSequences = stopSequences;
+      return this;
+    }
+
+    public Builder candidateCount(int candidateCount) {
+      this.candidateCount = 
