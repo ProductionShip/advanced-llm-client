@@ -63,4 +63,15 @@ public class GoogleGenerationConfig {
     }
 
     public Builder candidateCount(int candidateCount) {
-      this.candidateCount = 
+      this.candidateCount = candidateCount;
+      return this;
+    }
+
+    public Builder temperature(double temperature) {
+      this.temperature = temperature;
+      return this;
+    }
+
+    public Builder maxOutputTokens(int maxOutputTokens) {
+      this.maxOutputTokens = maxOutputTokens;
+     
