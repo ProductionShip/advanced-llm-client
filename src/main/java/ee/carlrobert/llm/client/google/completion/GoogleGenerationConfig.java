@@ -88,4 +88,7 @@ public class GoogleGenerationConfig {
     }
 
     public GoogleGenerationConfig build() {
-      return ne
+      return new GoogleGenerationConfig(this);
+    }
+  }
+}
