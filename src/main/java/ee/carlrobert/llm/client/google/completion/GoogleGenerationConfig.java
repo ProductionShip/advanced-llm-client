@@ -74,4 +74,18 @@ public class GoogleGenerationConfig {
 
     public Builder maxOutputTokens(int maxOutputTokens) {
       this.maxOutputTokens = maxOutputTokens;
-     
+      return this;
+    }
+
+    public Builder topP(double topP) {
+      this.topP = topP;
+      return this;
+    }
+
+    public Builder topK(int topK) {
+      this.topK = topK;
+      return this;
+    }
+
+    public GoogleGenerationConfig build() {
+      return ne
