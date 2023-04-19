@@ -33,4 +33,18 @@ public class GoogleEmbeddingRequest {
   }
 
   public Integer getOutputDimensionality() {
-    return outputDimension
+    return outputDimensionality;
+  }
+
+  /**
+   * <a href="https://ai.google.dev/api/rest/v1/TaskType?authuser=1">TaskType</a>.
+   */
+  public enum TaskType {
+    TASK_TYPE_UNSPECIFIED,
+    RETRIEVAL_QUERY,
+    RETRIEVAL_DOCUMENT,
+    SEMANTIC_SIMILARITY,
+    CLASSIFICATION,
+    CLUSTERING,
+    QUESTION_ANSWERING,
+  
