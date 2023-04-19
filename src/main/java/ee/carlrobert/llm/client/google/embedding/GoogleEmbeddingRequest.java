@@ -17,4 +17,20 @@ public class GoogleEmbeddingRequest {
     this.content = builder.content;
     this.taskType = builder.taskType;
     this.title = builder.title;
-    this.outputDimensionality = builder
+    this.outputDimensionality = builder.outputDimensionality;
+  }
+
+  public GoogleCompletionContent getContent() {
+    return content;
+  }
+
+  public TaskType getTaskType() {
+    return taskType;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public Integer getOutputDimensionality() {
+    return outputDimension
