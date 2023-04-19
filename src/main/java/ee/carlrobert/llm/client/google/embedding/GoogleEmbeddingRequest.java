@@ -10,4 +10,11 @@ public class GoogleEmbeddingRequest {
 
   private final GoogleCompletionContent content;
   private final TaskType taskType;
-  private 
+  private final String title;
+  private final Integer outputDimensionality;
+
+  public GoogleEmbeddingRequest(Builder builder) {
+    this.content = builder.content;
+    this.taskType = builder.taskType;
+    this.title = builder.title;
+    this.outputDimensionality = builder
