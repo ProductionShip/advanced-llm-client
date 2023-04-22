@@ -47,4 +47,12 @@ public class GoogleEmbeddingRequest {
     CLASSIFICATION,
     CLUSTERING,
     QUESTION_ANSWERING,
-  
+    FACT_VERIFICATION
+  }
+
+  public static class Builder {
+
+    private GoogleCompletionContent content;
+    private TaskType taskType = TaskType.RETRIEVAL_DOCUMENT; // Set default value
+    private String title;
+    private Integer outputDimensionality;
