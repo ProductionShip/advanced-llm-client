@@ -67,4 +67,14 @@ public class GoogleEmbeddingRequest {
     }
 
     public Builder title(String title) {
-      this
+      this.title = title;
+      return this;
+    }
+
+    public Builder outputDimensionality(int outputDimensionality) {
+      this.outputDimensionality = outputDimensionality;
+      return this;
+    }
+
+    public GoogleEmbeddingRequest build() {
+      return new GoogleEmbeddingRequest(this)
