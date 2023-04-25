@@ -56,3 +56,15 @@ public class GoogleEmbeddingRequest {
     private TaskType taskType = TaskType.RETRIEVAL_DOCUMENT; // Set default value
     private String title;
     private Integer outputDimensionality;
+
+    public Builder(GoogleCompletionContent content) {
+      this.content = content;
+    }
+
+    public Builder taskType(TaskType taskType) {
+      this.taskType = taskType;
+      return this;
+    }
+
+    public Builder title(String title) {
+      this
