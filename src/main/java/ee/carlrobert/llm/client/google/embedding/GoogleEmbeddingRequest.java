@@ -77,4 +77,8 @@ public class GoogleEmbeddingRequest {
     }
 
     public GoogleEmbeddingRequest build() {
-      return new GoogleEmbeddingRequest(this)
+      return new GoogleEmbeddingRequest(this);
+    }
+  }
+
+}
