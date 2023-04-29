@@ -40,4 +40,9 @@ public enum GoogleModel {
     return description;
   }
 
-  public static GoogleModel findByCode(String 
+  public static GoogleModel findByCode(String code) {
+    return Arrays.stream(GoogleModel.values())
+        .filter(item -> item.getCode().equals(code))
+        .findFirst().orElseThrow();
+  }
+}
