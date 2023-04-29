@@ -24,4 +24,20 @@ public enum GoogleModel {
   }
 
   public String getCode() {
-    re
+    return code;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public int getMaxTokens() {
+    return maxTokens;
+  }
+
+  @Override
+  public String toString() {
+    return description;
+  }
+
+  public static GoogleModel findByCode(String 
