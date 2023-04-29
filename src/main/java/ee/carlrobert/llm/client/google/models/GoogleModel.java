@@ -14,4 +14,14 @@ public enum GoogleModel {
   TEXT_EMBEDDING_004("text-embedding-004", "Text Embedding (2k)", 2048 + 1);
 
   private final String code;
-  privat
+  private final String description;
+  private final int maxTokens;
+
+  GoogleModel(String code, String description, int maxTokens) {
+    this.code = code;
+    this.description = description;
+    this.maxTokens = maxTokens;
+  }
+
+  public String getCode() {
+    re
