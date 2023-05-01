@@ -78,3 +78,50 @@ public class LlamaCompletionRequest implements CompletionRequest {
     private List<String> stop = new ArrayList<>();
 
     public Builder(String prompt) {
+      this.prompt = prompt;
+    }
+
+    public Builder setStream(boolean stream) {
+      this.stream = stream;
+      return this;
+    }
+
+    public Builder setN_predict(int n_predict) {
+      this.n_predict = n_predict;
+      return this;
+    }
+
+    public Builder setTemperature(double temperature) {
+      this.temperature = temperature;
+      return this;
+    }
+
+    public Builder setTop_k(int top_k) {
+      this.top_k = top_k;
+      return this;
+    }
+
+    public Builder setTop_p(double top_p) {
+      this.top_p = top_p;
+      return this;
+    }
+
+    public Builder setMin_p(double min_p) {
+      this.min_p = min_p;
+      return this;
+    }
+
+    public Builder setRepeat_penalty(double repeat_penalty) {
+      this.repeat_penalty = repeat_penalty;
+      return this;
+    }
+
+    public Builder setStop(List<String> stop) {
+      this.stop = stop;
+      return this;
+    }
+    public LlamaCompletionRequest build() {
+      return new LlamaCompletionRequest(this);
+    }
+  }
+}
