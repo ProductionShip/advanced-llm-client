@@ -107,3 +107,25 @@ public class GoogleModelsResponse {
     public double getTemperature() {
       return temperature;
     }
+
+    public void setTemperature(double temperature) {
+      this.temperature = temperature;
+    }
+
+    public double getTopP() {
+      return topP;
+    }
+
+    public void setTopP(double topP) {
+      this.topP = topP;
+    }
+
+    public int getTopK() {
+      return topK;
+    }
+
+    public void setTopK(int topK) {
+      this.topK = topK;
+    }
+  }
+}
