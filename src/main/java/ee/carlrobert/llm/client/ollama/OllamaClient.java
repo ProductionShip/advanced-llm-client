@@ -169,3 +169,96 @@ public class OllamaClient {
   private Request.Builder defaultRequest(String path) {
     return defaultRequest(path, false);
   }
+
+  private Request.Builder defaultRequest(String path, boolean stream) {
+    var baseHost = port == null ? BASE_URL : format("http://localhost:%d", port);
+    return new Request.Builder()
+        .url((host == null ? baseHost : host) + path)
+        .header("Cache-Control", "no-cache")
+        .header("Content-Type", "application/json")
+        .header("Accept", stream ? "text/event-stream" : "text/json");
+  }
+
+  private CompletionEventSourceListener<String> getChatCompletionEventSourceListener(
+      CompletionEventListener<String> eventListener
+  ) {
+    return new CompletionEventSourceListener<>(eventListener) {
+      @Override
+      protected String getMessage(String data) {
+        try {
+          return OBJECT_MAPPER.readValue(data, OllamaChatCompletionResponse.class).getMessage()
+              .getContent();
+        } catch (JacksonException e) {
+          return "";
+        }
+      }
+
+      @Override
+      protected ErrorDetails getErrorDetails(String error) {
+        return new ErrorDetails(error);
+      }
+    };
+  }
+
+  private CompletionEventSourceListener<String> getCompletionEventSourceListener(
+      CompletionEventListener<String> eventListener) {
+    return new CompletionEventSourceListener<>(eventListener) {
+      @Override
+      protected String getMessage(String data) {
+        try {
+          return OBJECT_MAPPER.readValue(data, OllamaCompletionResponse.class).getResponse();
+        } catch (JacksonException e) {
+          return "";
+        }
+      }
+
+      @Override
+      protected ErrorDetails getErrorDetails(String error) {
+        return new ErrorDetails(error);
+      }
+    };
+  }
+
+  private CompletionEventSourceListener<OllamaPullResponse> getPullModelEventSourceListener(
+      CompletionEventListener<OllamaPullResponse> eventListener) {
+    return new CompletionEventSourceListener<>(eventListener) {
+      @Override
+      protected OllamaPullResponse getMessage(String data) {
+        try {
+          return OBJECT_MAPPER.readValue(data, OllamaPullResponse.class);
+        } catch (JacksonException e) {
+          return null;
+        }
+      }
+
+      @Override
+      protected ErrorDetails getErrorDetails(String error) {
+        return new ErrorDetails(error);
+      }
+    };
+  }
+
+  public static class Builder {
+
+    private String host;
+    private Integer port;
+
+    public Builder setHost(String host) {
+      this.host = host;
+      return this;
+    }
+
+    public Builder setPort(Integer port) {
+      this.port = port;
+      return this;
+    }
+
+    public OllamaClient build(OkHttpClient.Builder builder) {
+      return new OllamaClient(this, builder);
+    }
+
+    public OllamaClient build() {
+      return build(new OkHttpClient.Builder());
+    }
+  }
+}
