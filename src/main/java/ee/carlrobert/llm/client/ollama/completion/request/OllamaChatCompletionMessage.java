@@ -21,3 +21,16 @@ public class OllamaChatCompletionMessage {
 
   @NotNull
   public String getRole() {
+    return role;
+  }
+
+  @NotNull
+  public String getContent() {
+    return content;
+  }
+
+  @Nullable
+  public List<String> getImages() {
+    return images;
+  }
+}
