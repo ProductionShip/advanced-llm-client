@@ -12,4 +12,12 @@ public class OllamaChatCompletionMessage {
   private final String content;
   private final List<String> images;
 
- 
+  public OllamaChatCompletionMessage(@NotNull String role, @NotNull String content,
+      @Nullable List<String> images) {
+    this.role = role;
+    this.content = content;
+    this.images = images;
+  }
+
+  @NotNull
+  public String getRole() {
