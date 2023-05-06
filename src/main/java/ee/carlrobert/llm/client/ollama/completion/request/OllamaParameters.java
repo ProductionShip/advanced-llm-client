@@ -122,3 +122,103 @@ public class OllamaParameters {
     private Integer numCtx;
     private Integer numGqa;
     private Integer numGpu;
+    private Integer numThread;
+    private Integer repeatLastN;
+    private Double repeatPenalty;
+    private Double temperature;
+    private Integer seed;
+    private List<String> stop;
+    private Double tfsZ;
+    private Integer numPredict;
+    private Integer topK;
+    private Double topP;
+
+    public Builder() {
+      // Default values
+    }
+
+    public Builder mirostat(Integer mirostat) {
+      this.mirostat = mirostat;
+      return this;
+    }
+
+    public Builder mirostatEta(Double mirostatEta) {
+      this.mirostatEta = mirostatEta;
+      return this;
+    }
+
+    public Builder mirostatTau(Double mirostatTau) {
+      this.mirostatTau = mirostatTau;
+      return this;
+    }
+
+    public Builder numCtx(Integer numCtx) {
+      this.numCtx = numCtx;
+      return this;
+    }
+
+    public Builder numGqa(Integer numGqa) {
+      this.numGqa = numGqa;
+      return this;
+    }
+
+    public Builder numGpu(Integer numGpu) {
+      this.numGpu = numGpu;
+      return this;
+    }
+
+    public Builder numThread(Integer numThread) {
+      this.numThread = numThread;
+      return this;
+    }
+
+    public Builder repeatLastN(Integer repeatLastN) {
+      this.repeatLastN = repeatLastN;
+      return this;
+    }
+
+    public Builder repeatPenalty(Double repeatPenalty) {
+      this.repeatPenalty = repeatPenalty;
+      return this;
+    }
+
+    public Builder temperature(Double temperature) {
+      this.temperature = temperature;
+      return this;
+    }
+
+    public Builder seed(Integer seed) {
+      this.seed = seed;
+      return this;
+    }
+
+    public Builder stop(List<String> stop) {
+      this.stop = stop;
+      return this;
+    }
+
+    public Builder tfsZ(Double tfsZ) {
+      this.tfsZ = tfsZ;
+      return this;
+    }
+
+    public Builder numPredict(Integer numPredict) {
+      this.numPredict = numPredict;
+      return this;
+    }
+
+    public Builder topK(Integer topK) {
+      this.topK = topK;
+      return this;
+    }
+
+    public Builder topP(Double topP) {
+      this.topP = topP;
+      return this;
+    }
+
+    public OllamaParameters build() {
+      return new OllamaParameters(this);
+    }
+  }
+}
