@@ -65,3 +65,73 @@ public class OllamaChatCompletionResponse {
 
   @NotNull
   public OllamaChatCompletionMessageResponse getMessage() {
+    return message;
+  }
+
+  public void setMessage(@NotNull OllamaChatCompletionMessageResponse message) {
+    this.message = message;
+  }
+
+  @NotNull
+  public Boolean isDone() {
+    return done;
+  }
+
+  @Nullable
+  public Integer getPromptEvalCount() {
+    return promptEvalCount;
+  }
+
+  public void setPromptEvalCount(@Nullable Integer promptEvalCount) {
+    this.promptEvalCount = promptEvalCount;
+  }
+
+  @Nullable
+  public Integer getEvalCount() {
+    return evalCount;
+  }
+
+  public void setEvalCount(@Nullable Integer evalCount) {
+    this.evalCount = evalCount;
+  }
+
+  @Nullable
+  public Long getPromptEvalDuration() {
+    return promptEvalDuration;
+  }
+
+  public void setPromptEvalDuration(@Nullable Long promptEvalDuration) {
+    this.promptEvalDuration = promptEvalDuration;
+  }
+
+  @Nullable
+  public Long getEvalDuration() {
+    return evalDuration;
+  }
+
+  public void setEvalDuration(@Nullable Long evalDuration) {
+    this.evalDuration = evalDuration;
+  }
+
+  @Nullable
+  public Long getTotalDuration() {
+    return totalDuration;
+  }
+
+  public void setTotalDuration(@Nullable Long totalDuration) {
+    this.totalDuration = totalDuration;
+  }
+
+  @Nullable
+  public Long getLoadDuration() {
+    return loadDuration;
+  }
+
+  public void setLoadDuration(@Nullable Long loadDuration) {
+    this.loadDuration = loadDuration;
+  }
+
+  public void setDone(@NotNull Boolean done) {
+    this.done = done;
+  }
+}
