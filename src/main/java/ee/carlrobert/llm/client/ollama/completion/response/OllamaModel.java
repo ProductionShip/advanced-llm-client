@@ -7,4 +7,22 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class 
+public class OllamaModel {
+
+  private String name;
+  private long size;
+  private OllamaModelDetails details;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public long getSize() {
+    return size;
+  }
+
+  public v
