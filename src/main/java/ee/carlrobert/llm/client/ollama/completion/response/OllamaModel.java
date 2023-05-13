@@ -25,4 +25,17 @@ public class OllamaModel {
     return size;
   }
 
-  public v
+  public void setSize(long size) {
+    this.size = size;
+  }
+
+  public OllamaModelDetails getDetails() {
+    return details;
+  }
+
+  public void setDetails(OllamaModelDetails details) {
+    this.details = details;
+  }
+
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  @JsonN
