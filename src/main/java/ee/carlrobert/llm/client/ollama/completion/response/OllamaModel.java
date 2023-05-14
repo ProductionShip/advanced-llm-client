@@ -38,4 +38,12 @@ public class OllamaModel {
   }
 
   @JsonIgnoreProperties(ignoreUnknown = true)
-  @JsonN
+  @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+  public static class OllamaModelDetails {
+
+    private String format;
+    private String family;
+    private List<String> families;
+    private String parameterSize;
+    private String quantizationLevel;
+
