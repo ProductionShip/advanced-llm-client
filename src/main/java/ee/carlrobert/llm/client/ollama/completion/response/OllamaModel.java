@@ -47,3 +47,17 @@ public class OllamaModel {
     private String parameterSize;
     private String quantizationLevel;
 
+    public String getFormat() {
+      return format;
+    }
+
+    public void setFormat(String format) {
+      this.format = format;
+    }
+
+    public String getFamily() {
+      return family;
+    }
+
+    public void setFamily(String family) {
+      this.family = 
