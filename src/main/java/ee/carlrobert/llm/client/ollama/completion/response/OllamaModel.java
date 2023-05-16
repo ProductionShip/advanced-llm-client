@@ -84,4 +84,7 @@ public class OllamaModel {
     }
 
     public void setQuantizationLevel(String quantizationLevel) {
-      this.quantizationLe
+      this.quantizationLevel = quantizationLevel;
+    }
+  }
+}
