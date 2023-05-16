@@ -72,4 +72,16 @@ public class OllamaModel {
     }
 
     public String getParameterSize() {
-      return parameterSize
+      return parameterSize;
+    }
+
+    public void setParameterSize(String parameterSize) {
+      this.parameterSize = parameterSize;
+    }
+
+    public String getQuantizationLevel() {
+      return quantizationLevel;
+    }
+
+    public void setQuantizationLevel(String quantizationLevel) {
+      this.quantizationLe
