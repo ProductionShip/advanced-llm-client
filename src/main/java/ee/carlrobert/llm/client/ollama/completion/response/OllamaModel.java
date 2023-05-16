@@ -60,4 +60,16 @@ public class OllamaModel {
     }
 
     public void setFamily(String family) {
-      this.family = 
+      this.family = family;
+    }
+
+    public List<String> getFamilies() {
+      return families;
+    }
+
+    public void setFamilies(List<String> families) {
+      this.families = families;
+    }
+
+    public String getParameterSize() {
+      return parameterSize
