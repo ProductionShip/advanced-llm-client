@@ -6,4 +6,16 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonNaming(Prop
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public class OllamaTagsResponse {
+
+  private List<OllamaModel> models;
+
+  public List<OllamaModel> getModels() {
+    return models;
+  }
+
+  public void setModels(List<OllamaModel> models) {
+    this.models = models;
+  }
+}
