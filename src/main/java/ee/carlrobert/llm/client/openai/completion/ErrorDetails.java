@@ -53,4 +53,10 @@ public class ErrorDetails extends BaseError {
   @Override
   public String toString() {
     return new StringJoiner(", ", ErrorDetails.class.getSimpleName() + "[", "]")
-        .add("message='" + messag
+        .add("message='" + message + "'")
+        .add("type='" + type + "'")
+        .add("param='" + param + "'")
+        .add("code='" + code + "'")
+        .toString();
+  }
+}
