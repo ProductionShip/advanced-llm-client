@@ -26,4 +26,16 @@ public class ErrorDetails extends BaseError {
       @JsonProperty("type") String type,
       @JsonProperty("param") String param,
       @JsonProperty("code") String code) {
-    
+    this.message = message;
+    this.type = type;
+    this.param = param;
+    this.code = code;
+  }
+
+  public static ErrorDetails DEFAULT_ERROR = new ErrorDetails(DEFAULT_ERROR_MSG);
+
+  public String getMessage() {
+    return message;
+  }
+
+  public String getType() {
