@@ -39,3 +39,18 @@ public class ErrorDetails extends BaseError {
   }
 
   public String getType() {
+    return type;
+  }
+
+  public String getParam() {
+    return param;
+  }
+
+  public String getCode() {
+    return code;
+  }
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", ErrorDetails.class.getSimpleName() + "[", "]")
+        .add("message='" + messag
