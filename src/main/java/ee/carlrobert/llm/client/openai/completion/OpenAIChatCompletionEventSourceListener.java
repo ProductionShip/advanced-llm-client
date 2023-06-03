@@ -7,4 +7,11 @@ import ee.carlrobert.llm.client.openai.completion.response.OpenAIChatCompletionR
 import ee.carlrobert.llm.client.openai.completion.response.OpenAIChatCompletionResponseChoice;
 import ee.carlrobert.llm.client.openai.completion.response.OpenAIChatCompletionResponseChoiceDelta;
 import ee.carlrobert.llm.completion.CompletionEventListener;
-import ee.carlrobert.llm.completion.CompletionEventSourceListe
+import ee.carlrobert.llm.completion.CompletionEventSourceListener;
+import java.util.Objects;
+import java.util.stream.Stream;
+
+public class OpenAIChatCompletionEventSourceListener extends CompletionEventSourceListener<String> {
+
+  public OpenAIChatCompletionEventSourceListener(CompletionEventListener<String> listener) {
+    supe
