@@ -23,4 +23,10 @@ public class OpenAIChatCompletionEventSourceListener extends CompletionEventSour
    *     <li>Search all choices which are not null</li>
    *     <li>Search all deltas which are not null</li>
    *     <li>Use first content which is not null or blank (whitespace)</li>
-   *     <li>
+   *     <li>Otherwise use "" (empty string) if no match can be found</li>
+   * </ul>
+   *
+   * @return First non-blank content which can be found, otherwise {@code ""}
+   */
+  protected String getMessage(String data) throws JsonProcessingException {
+    var choices = 
