@@ -29,4 +29,9 @@ public class OpenAIChatCompletionEventSourceListener extends CompletionEventSour
    * @return First non-blank content which can be found, otherwise {@code ""}
    */
   protected String getMessage(String data) throws JsonProcessingException {
-    var choices = 
+    var choices = OBJECT_MAPPER
+        .readValue(data, OpenAIChatCompletionResponse.class)
+        .getChoices();
+    return (choices == null ? Stream.<OpenAIChatCompletionResponseChoice>empty() : choices.stream())
+            .filter(Objects::nonNull)
+            .map(OpenAIChatCompletionResponseCho
