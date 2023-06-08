@@ -34,4 +34,13 @@ public class OpenAIChatCompletionEventSourceListener extends CompletionEventSour
         .getChoices();
     return (choices == null ? Stream.<OpenAIChatCompletionResponseChoice>empty() : choices.stream())
             .filter(Objects::nonNull)
-            .map(OpenAIChatCompletionResponseCho
+            .map(OpenAIChatCompletionResponseChoice::getDelta)
+            .filter(Objects::nonNull)
+            .map(OpenAIChatCompletionResponseChoiceDelta::getContent)
+            .filter(Objects::nonNull)
+            .findFirst()
+            .orElse("");
+  }
+
+  @Override
+  protected ErrorDetails getErrorDetails(Strin
