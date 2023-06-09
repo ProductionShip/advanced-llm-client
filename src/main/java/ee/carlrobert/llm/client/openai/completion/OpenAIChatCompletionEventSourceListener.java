@@ -43,4 +43,7 @@ public class OpenAIChatCompletionEventSourceListener extends CompletionEventSour
   }
 
   @Override
-  protected ErrorDetails getErrorDetails(Strin
+  protected ErrorDetails getErrorDetails(String data) throws JsonProcessingException {
+    return OBJECT_MAPPER.readValue(data, ApiResponseError.class).getError();
+  }
+}
