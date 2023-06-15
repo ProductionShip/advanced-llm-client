@@ -10,4 +10,13 @@ import ee.carlrobert.llm.completion.CompletionEventSourceListener;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class OpenAITextCompletionEvent
+public class OpenAITextCompletionEventSourceListener extends CompletionEventSourceListener {
+
+  public OpenAITextCompletionEventSourceListener(CompletionEventListener listeners) {
+    super(listeners);
+  }
+
+  /**
+   * Text of the first choice.
+   * <ul>
+   *     <li>Search all choices 
