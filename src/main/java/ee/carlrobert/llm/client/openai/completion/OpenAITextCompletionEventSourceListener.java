@@ -19,4 +19,9 @@ public class OpenAITextCompletionEventSourceListener extends CompletionEventSour
   /**
    * Text of the first choice.
    * <ul>
-   *     <li>Search all choices 
+   *     <li>Search all choices which are not null</li>
+   *     <li>Use first text which is not null or blank (whitespace)</li>
+   *     <li>Otherwise use "" (empty string) if no match can be found</li>
+   * </ul>
+   *
+   * @return First non-blank content which can be found, otherwise {@code ""
