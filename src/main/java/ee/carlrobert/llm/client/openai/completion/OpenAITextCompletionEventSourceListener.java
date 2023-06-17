@@ -24,4 +24,10 @@ public class OpenAITextCompletionEventSourceListener extends CompletionEventSour
    *     <li>Otherwise use "" (empty string) if no match can be found</li>
    * </ul>
    *
-   * @return First non-blank content which can be found, otherwise {@code ""
+   * @return First non-blank content which can be found, otherwise {@code ""}
+   */
+  protected String getMessage(String data) throws JsonProcessingException {
+    var choices = OBJECT_MAPPER
+        .readValue(data, OpenAITextCompletionResponse.class)
+        .getChoices();
+    return (choices == null ? Stream.<OpenAITextCompletionResponseChoice>empty()
