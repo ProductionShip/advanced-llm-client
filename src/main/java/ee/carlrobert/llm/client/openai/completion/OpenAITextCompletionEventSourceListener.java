@@ -30,4 +30,13 @@ public class OpenAITextCompletionEventSourceListener extends CompletionEventSour
     var choices = OBJECT_MAPPER
         .readValue(data, OpenAITextCompletionResponse.class)
         .getChoices();
-    return (choices == null ? Stream.<OpenAITextCompletionResponseChoice>empty()
+    return (choices == null ? Stream.<OpenAITextCompletionResponseChoice>empty() : choices.stream())
+            .filter(Objects::nonNull)
+            .map(OpenAITextCompletionResponseChoice::getText)
+            .filter(Objects::nonNull)
+            .findFirst()
+            .orElse("");
+  }
+
+  @Override
+  protected ErrorDetails getErrorDeta
