@@ -10,4 +10,17 @@ public class OpenAIChatCompletionDetailedMessage implements OpenAIChatCompletion
 
   public OpenAIChatCompletionDetailedMessage(String role, OpenAIMessageContent content) {
     this.role = role;
-    this.content = Collections.s
+    this.content = Collections.singletonList(content);
+  }
+
+  public OpenAIChatCompletionDetailedMessage(String role, List<OpenAIMessageContent> content) {
+    this.role = role;
+    this.content = content;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public List<OpenAIMessageContent> getContent() {
+    retur
