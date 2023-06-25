@@ -23,4 +23,10 @@ public class OpenAIChatCompletionDetailedMessage implements OpenAIChatCompletion
   }
 
   public List<OpenAIMessageContent> getContent() {
-    retur
+    return content;
+  }
+
+  public void setContent(List<OpenAIMessageContent> content) {
+    this.content = content;
+  }
+}
