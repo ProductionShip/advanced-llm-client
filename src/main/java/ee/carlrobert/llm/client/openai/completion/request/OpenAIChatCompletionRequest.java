@@ -33,4 +33,13 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     this.messages = builder.messages;
     this.maxTokens = builder.maxTokens;
     this.temperature = builder.temperature;
-    this.frequencyPenalty = builder.frequencyPenalty
+    this.frequencyPenalty = builder.frequencyPenalty;
+    this.presencePenalty = builder.presencePenalty;
+    this.stream = builder.stream;
+    this.overriddenPath = builder.overriddenPath;
+    this.tools = builder.tools;
+    this.toolChoice = builder.toolChoice;
+    this.responseFormat = builder.responseFormat;
+  }
+
+  publi
