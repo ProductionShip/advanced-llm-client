@@ -28,4 +28,9 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
   @JsonProperty("response_format")
   private final ResponseFormat responseFormat;
 
-  private OpenAIChatComple
+  private OpenAIChatCompletionRequest(Builder builder) {
+    this.model = builder.model;
+    this.messages = builder.messages;
+    this.maxTokens = builder.maxTokens;
+    this.temperature = builder.temperature;
+    this.frequencyPenalty = builder.frequencyPenalty
