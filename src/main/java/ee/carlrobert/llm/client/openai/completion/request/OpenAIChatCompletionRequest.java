@@ -11,4 +11,11 @@ import java.util.List;
 public class OpenAIChatCompletionRequest implements CompletionRequest {
 
   private final String model;
-  private final List<OpenAIChatCompletionMessage> messa
+  private final List<OpenAIChatCompletionMessage> messages;
+  @JsonProperty("max_tokens")
+  private final int maxTokens;
+  private final double temperature;
+  @JsonProperty("frequency_penalty")
+  private final double frequencyPenalty;
+  @JsonProperty("presence_penalty")
+  private final double presencePena
