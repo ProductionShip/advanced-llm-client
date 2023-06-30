@@ -18,4 +18,14 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
   @JsonProperty("frequency_penalty")
   private final double frequencyPenalty;
   @JsonProperty("presence_penalty")
-  private final double presencePena
+  private final double presencePenalty;
+  private final boolean stream;
+  @JsonIgnore
+  private final String overriddenPath;
+  private final List<Tool> tools;
+  @JsonProperty("tool_choice")
+  private final String toolChoice;
+  @JsonProperty("response_format")
+  private final ResponseFormat responseFormat;
+
+  private OpenAIChatComple
