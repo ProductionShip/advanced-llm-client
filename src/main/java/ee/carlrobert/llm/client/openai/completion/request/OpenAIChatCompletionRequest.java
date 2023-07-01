@@ -55,4 +55,23 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
   }
 
   public int getMaxTokens() {
-    return maxT
+    return maxTokens;
+  }
+
+  public double getTemperature() {
+    return temperature;
+  }
+
+  public double getFrequencyPenalty() {
+    return frequencyPenalty;
+  }
+
+  public double getPresencePenalty() {
+    return presencePenalty;
+  }
+
+  public boolean isStream() {
+    return stream;
+  }
+
+  public String getOverri
