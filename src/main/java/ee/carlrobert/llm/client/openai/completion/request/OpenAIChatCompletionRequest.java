@@ -42,4 +42,17 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     this.responseFormat = builder.responseFormat;
   }
 
-  publi
+  public void addMessage(OpenAIChatCompletionMessage message) {
+    messages.add(message);
+  }
+
+  public List<OpenAIChatCompletionMessage> getMessages() {
+    return messages;
+  }
+
+  public String getModel() {
+    return model;
+  }
+
+  public int getMaxTokens() {
+    return maxT
