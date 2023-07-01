@@ -74,4 +74,20 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     return stream;
   }
 
-  public String getOverri
+  public String getOverriddenPath() {
+    return overriddenPath;
+  }
+
+  public List<Tool> getTools() {
+    return tools;
+  }
+
+  public String getToolChoice() {
+    return toolChoice;
+  }
+
+  public ResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+  public static c
