@@ -90,4 +90,12 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     return responseFormat;
   }
 
-  public static c
+  public static class Builder {
+
+    private final List<OpenAIChatCompletionMessage> messages;
+    private String model;
+    private int maxTokens = 1000;
+    private double temperature = 0.9;
+    private double frequencyPenalty = 0;
+    private double presencePenalty = 0.6;
+    private 
