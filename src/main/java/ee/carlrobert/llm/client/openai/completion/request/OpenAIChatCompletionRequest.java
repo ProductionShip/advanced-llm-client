@@ -108,4 +108,15 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
       this.messages = messages;
     }
 
-    public Builder setMod
+    public Builder setModel(OpenAIChatCompletionModel model) {
+      this.model = model.getCode();
+      return this;
+    }
+
+    public Builder setModel(String model) {
+      this.model = model;
+      return this;
+    }
+
+    public Builder setMaxTokens(int maxTokens) {
+      this.maxTokens 
