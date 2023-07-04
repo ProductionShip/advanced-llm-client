@@ -98,4 +98,14 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     private double temperature = 0.9;
     private double frequencyPenalty = 0;
     private double presencePenalty = 0.6;
-    private 
+    private boolean stream = true;
+    private String overriddenPath;
+    private List<Tool> tools;
+    private String toolChoice;
+    private ResponseFormat responseFormat;
+
+    public Builder(List<OpenAIChatCompletionMessage> messages) {
+      this.messages = messages;
+    }
+
+    public Builder setMod
