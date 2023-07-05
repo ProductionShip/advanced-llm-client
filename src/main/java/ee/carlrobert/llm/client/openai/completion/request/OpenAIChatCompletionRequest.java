@@ -140,4 +140,17 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
 
     public Builder setStream(boolean stream) {
       this.stream = stream;
-      return th
+      return this;
+    }
+
+    public Builder setOverriddenPath(String overriddenPath) {
+      this.overriddenPath = overriddenPath;
+      return this;
+    }
+
+    public Builder setTools(List<Tool> tools) {
+      this.tools = tools;
+      return this;
+    }
+
+    public Builde
