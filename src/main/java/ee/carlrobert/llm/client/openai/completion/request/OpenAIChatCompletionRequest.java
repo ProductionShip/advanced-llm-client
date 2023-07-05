@@ -119,4 +119,14 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     }
 
     public Builder setMaxTokens(int maxTokens) {
-      this.maxTokens 
+      this.maxTokens = maxTokens;
+      return this;
+    }
+
+    public Builder setTemperature(double temperature) {
+      this.temperature = temperature;
+      return this;
+    }
+
+    public Builder setFrequencyPenalty(double frequencyPenalty) {
+      this.frequencyPenalty = frequencyPena
