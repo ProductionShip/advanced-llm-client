@@ -129,4 +129,15 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
     }
 
     public Builder setFrequencyPenalty(double frequencyPenalty) {
-      this.frequencyPenalty = frequencyPena
+      this.frequencyPenalty = frequencyPenalty;
+      return this;
+    }
+
+    public Builder setPresencePenalty(double presencePenalty) {
+      this.presencePenalty = presencePenalty;
+      return this;
+    }
+
+    public Builder setStream(boolean stream) {
+      this.stream = stream;
+      return th
