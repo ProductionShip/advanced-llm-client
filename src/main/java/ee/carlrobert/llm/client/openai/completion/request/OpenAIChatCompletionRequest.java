@@ -153,4 +153,14 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
       return this;
     }
 
-    public Builde
+    public Builder setToolChoice(String toolChoice) {
+      this.toolChoice = toolChoice;
+      return this;
+    }
+
+    public Builder setResponseFormat(ResponseFormat responseFormat) {
+      this.responseFormat = responseFormat;
+      return this;
+    }
+
+    public OpenAIChatCompletionRequest 
