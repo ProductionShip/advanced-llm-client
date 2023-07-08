@@ -163,4 +163,8 @@ public class OpenAIChatCompletionRequest implements CompletionRequest {
       return this;
     }
 
-    public OpenAIChatCompletionRequest 
+    public OpenAIChatCompletionRequest build() {
+      return new OpenAIChatCompletionRequest(this);
+    }
+  }
+}
