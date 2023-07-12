@@ -16,4 +16,14 @@ public class OpenAIImageUrl {
 
   private ImageDetail detail;
 
-  public OpenAIImageUrl(String mediaType, byte[] imageData, ImageDetail det
+  public OpenAIImageUrl(String mediaType, byte[] imageData, ImageDetail detail) {
+    this.setImageUrl(mediaType, imageData);
+    this.detail = detail;
+  }
+
+  public OpenAIImageUrl(String mediaType, byte[] imageData) {
+    this.setImageUrl(mediaType, imageData);
+  }
+
+  public OpenAIImageUrl(String imageUrl, ImageDetail detail) {
+    thi
