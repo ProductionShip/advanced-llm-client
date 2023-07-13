@@ -42,4 +42,20 @@ public class OpenAIImageUrl {
   }
 
   public void setDetail(ImageDetail detail) {
-    this.detail = detai
+    this.detail = detail;
+  }
+
+
+  public String getUrl() {
+    return url;
+  }
+
+  /**
+   * Sets the URL for the image.
+   * This can be any publicly accessible URL.
+   *
+   * @param url URL to the image
+   */
+  public void setUrl(String url) {
+    this.url = url;
+ 
