@@ -26,4 +26,20 @@ public class OpenAIImageUrl {
   }
 
   public OpenAIImageUrl(String imageUrl, ImageDetail detail) {
-    thi
+    this.url = imageUrl;
+    this.detail = detail;
+  }
+
+  public OpenAIImageUrl(String imageUrl) {
+    this.url = imageUrl;
+  }
+
+  public OpenAIImageUrl() {
+  }
+
+  public ImageDetail getDetail() {
+    return detail;
+  }
+
+  public void setDetail(ImageDetail detail) {
+    this.detail = detai
