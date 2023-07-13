@@ -58,4 +58,14 @@ public class OpenAIImageUrl {
    */
   public void setUrl(String url) {
     this.url = url;
- 
+  }
+
+  /**
+   * Sets the url in a way so that data is directly uploaded to OpenAI.
+   *
+   * @param mediaType media type of the image (e.g. "image/jpeg")
+   * @param imageData byte data of the image
+   */
+  @JsonIgnore
+  public void setImageUrl(String mediaType, byte[] imageData) {
+   
