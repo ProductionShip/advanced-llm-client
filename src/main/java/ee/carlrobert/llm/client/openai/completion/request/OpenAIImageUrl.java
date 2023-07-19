@@ -68,4 +68,16 @@ public class OpenAIImageUrl {
    */
   @JsonIgnore
   public void setImageUrl(String mediaType, byte[] imageData) {
+    this.url = "data:" + mediaType + ";base64,"
+            + Base64.getEncoder().encodeToString(imageData);
+  }
+
+  public enum ImageDetail {
+    HIGH("high"),
+    LOW("low"),
+    @JsonEnumDefaultValue
+    AUTO("auto");
+    private final String detail;
+
+    ImageDetail(String detail) {
    
