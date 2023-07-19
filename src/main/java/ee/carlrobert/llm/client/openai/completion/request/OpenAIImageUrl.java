@@ -80,4 +80,12 @@ public class OpenAIImageUrl {
     private final String detail;
 
     ImageDetail(String detail) {
-   
+      this.detail = detail;
+    }
+
+    @JsonValue
+    public String getDetail() {
+      return this.detail;
+    }
+  }
+}
