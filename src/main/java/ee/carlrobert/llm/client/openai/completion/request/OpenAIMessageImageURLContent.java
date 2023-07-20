@@ -17,4 +17,16 @@ public class OpenAIMessageImageURLContent extends OpenAIMessageContent {
   public OpenAIMessageImageURLContent() {
   }
 
-  public OpenAIMessageImageURLContent(OpenAIImageUrl im
+  public OpenAIMessageImageURLContent(OpenAIImageUrl imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+
+  public OpenAIImageUrl getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(OpenAIImageUrl imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+}
