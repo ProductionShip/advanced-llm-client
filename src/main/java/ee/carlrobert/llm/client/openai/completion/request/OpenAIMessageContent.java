@@ -8,4 +8,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     property = "type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = OpenAIMessageTextContent.class, name = "text"),
-    @JsonSubTypes.Type(value = OpenAIMessageImageURLContent.class, name = "imag
+    @JsonSubTypes.Type(value = OpenAIMessageImageURLContent.class, name = "image_url")})
+public abstract class OpenAIMessageContent {
+}
