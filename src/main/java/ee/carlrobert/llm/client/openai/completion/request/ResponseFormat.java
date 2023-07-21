@@ -9,4 +9,6 @@ public class ResponseFormat {
   }
 
   public void setType(String type) {
-    
+    this.type = type;
+  }
+}
