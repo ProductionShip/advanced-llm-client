@@ -22,4 +22,11 @@ public class ToolFunction {
     this.description = description;
   }
 
-  public ToolFunctionParameters getParameter
+  public ToolFunctionParameters getParameters() {
+    return parameters;
+  }
+
+  public void setParameters(ToolFunctionParameters parameters) {
+    this.parameters = parameters;
+  }
+}
