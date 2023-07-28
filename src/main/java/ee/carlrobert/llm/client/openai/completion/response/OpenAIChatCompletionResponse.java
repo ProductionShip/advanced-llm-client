@@ -7,4 +7,11 @@ import ee.carlrobert.llm.completion.CompletionResponse;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-publi
+public class OpenAIChatCompletionResponse implements CompletionResponse {
+
+  private final String id;
+  private final List<OpenAIChatCompletionResponseChoice> choices;
+
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public OpenAIChatCompletionResponse(
+   
