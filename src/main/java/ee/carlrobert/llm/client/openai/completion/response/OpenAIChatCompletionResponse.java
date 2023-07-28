@@ -14,4 +14,15 @@ public class OpenAIChatCompletionResponse implements CompletionResponse {
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public OpenAIChatCompletionResponse(
+      @JsonProperty("id") String id,
+      @JsonProperty("choices") List<OpenAIChatCompletionResponseChoice> choices) {
+    this.id = id;
+    this.choices = choices;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public List<OpenAIChatCompletionResponseChoice> getChoices() {
    
