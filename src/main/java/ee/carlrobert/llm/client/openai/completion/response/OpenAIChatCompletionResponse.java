@@ -25,4 +25,6 @@ public class OpenAIChatCompletionResponse implements CompletionResponse {
   }
 
   public List<OpenAIChatCompletionResponseChoice> getChoices() {
-   
+    return choices;
+  }
+}
