@@ -11,4 +11,9 @@ public class OpenAIChatCompletionResponseChoice {
   private final OpenAIChatCompletionResponseChoiceDelta message;
   private final String finishReason;
 
-  @JsonCreator(mode = JsonCreator.Mode.PROPER
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public OpenAIChatCompletionResponseChoice(
+      @JsonProperty("delta") OpenAIChatCompletionResponseChoiceDelta delta,
+      @JsonProperty("message") OpenAIChatCompletionResponseChoiceDelta message,
+      @JsonProperty("finish_reason") String finishReason) {
+  
