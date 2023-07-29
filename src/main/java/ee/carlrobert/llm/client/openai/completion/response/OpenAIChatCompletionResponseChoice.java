@@ -16,4 +16,17 @@ public class OpenAIChatCompletionResponseChoice {
       @JsonProperty("delta") OpenAIChatCompletionResponseChoiceDelta delta,
       @JsonProperty("message") OpenAIChatCompletionResponseChoiceDelta message,
       @JsonProperty("finish_reason") String finishReason) {
-  
+    this.delta = delta;
+    this.message = message;
+    this.finishReason = finishReason;
+  }
+
+  public OpenAIChatCompletionResponseChoiceDelta getDelta() {
+    return delta;
+  }
+
+  public OpenAIChatCompletionResponseChoiceDelta getMessage() {
+    return message;
+  }
+
+ 
