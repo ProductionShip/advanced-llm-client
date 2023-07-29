@@ -29,4 +29,7 @@ public class OpenAIChatCompletionResponseChoice {
     return message;
   }
 
- 
+  public String getFinishReason() {
+    return finishReason;
+  }
+}
