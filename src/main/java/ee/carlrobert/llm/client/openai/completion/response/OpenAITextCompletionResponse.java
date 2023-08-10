@@ -25,4 +25,6 @@ public class OpenAITextCompletionResponse implements CompletionResponse {
   }
 
   public List<OpenAITextCompletionResponseChoice> getChoices() {
-    retu
+    return choices;
+  }
+}
