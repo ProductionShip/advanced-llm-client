@@ -6,4 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.carlrobert.llm.completion.CompletionResponse;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUn
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class OpenAITextCompletionResponse implements CompletionResponse {
+
+  private final String id;
+  private final List<OpenAITextCompletionResponseChoice> choices;
+
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public OpenAITextCompletionResponse(
+   
