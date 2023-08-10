@@ -14,4 +14,15 @@ public class OpenAITextCompletionResponse implements CompletionResponse {
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public OpenAITextCompletionResponse(
-   
+      @JsonProperty("id") String id,
+      @JsonProperty("choices") List<OpenAITextCompletionResponseChoice> choices) {
+    this.id = id;
+    this.choices = choices;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public List<OpenAITextCompletionResponseChoice> getChoices() {
+    retu
