@@ -14,4 +14,7 @@ public class OpenAITextCompletionResponseChoice {
     this.text = text;
   }
 
-  public String getText()
+  public String getText() {
+    return text;
+  }
+}
