@@ -13,4 +13,18 @@ public class ToolCall {
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public ToolCall(
-      @JsonProperty("id") String 
+      @JsonProperty("id") String id,
+      @JsonProperty("type") String type,
+      @JsonProperty("function") ToolFunctionResponse function) {
+    this.id = id;
+    this.type = type;
+    this.function = function;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getType() {
+    return type;
+ 
