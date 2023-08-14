@@ -27,4 +27,9 @@ public class ToolCall {
 
   public String getType() {
     return type;
- 
+  }
+
+  public ToolFunctionResponse getFunction() {
+    return function;
+  }
+}
