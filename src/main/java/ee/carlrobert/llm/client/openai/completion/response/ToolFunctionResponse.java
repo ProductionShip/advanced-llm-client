@@ -12,4 +12,17 @@ public class ToolFunctionResponse {
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
   public ToolFunctionResponse(
-      @Json
+      @JsonProperty("name") String name,
+      @JsonProperty("arguments") String arguments) {
+    this.name = name;
+    this.arguments = arguments;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getArguments() {
+    return arguments;
+  }
+}
