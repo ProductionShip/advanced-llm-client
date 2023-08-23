@@ -9,3 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Embedding {
 
   private final double[] embedding;
+
+  @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+  public Embedding(@JsonProperty("error") double[] embedding) {
+    this.embedding = embedding;
+  }
+
+  public double[] getEmbedding() {
+    return embedding;
+  }
+}
