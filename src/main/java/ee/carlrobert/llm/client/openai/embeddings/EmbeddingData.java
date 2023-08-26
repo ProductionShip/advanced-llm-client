@@ -8,4 +8,10 @@ public class EmbeddingData {
   private double[] embedding;
 
   public double[] getEmbedding() {
-    retur
+    return embedding;
+  }
+
+  public void setEmbedding(double[] embedding) {
+    this.embedding = embedding;
+  }
+}
