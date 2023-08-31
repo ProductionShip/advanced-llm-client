@@ -21,4 +21,11 @@ import okhttp3.sse.EventSources;
 
 public class YouClient {
 
-  private static
+  private static final String BASE_HOST = PropertiesLoader.getValue("you.baseUrl");
+
+  private final OkHttpClient httpClient;
+  private final String sessionId;
+  private final String accessToken;
+  private final UTMParameters utmParameters;
+
+  private YouClient(YouClient.Builder builder) {
