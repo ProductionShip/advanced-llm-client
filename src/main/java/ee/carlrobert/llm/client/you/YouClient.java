@@ -43,4 +43,10 @@ public class YouClient {
   }
 
   private Request buildHttpRequest(YouCompletionRequest request) {
-    var guestIdCookie = request.getUs
+    var guestIdCookie = request.getUserId() != null
+        ? ("uuid_guest=" + request.getUserId().toString() + "; ")
+        : "";
+    return new Request.Builder()
+        .url(buildHttpUrl(request))
+        .header("Accept", "text/event-stream")
+        .header("Cache-Control", "no-cache"
