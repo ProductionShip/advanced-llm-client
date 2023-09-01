@@ -29,3 +29,12 @@ public class YouClient {
   private final UTMParameters utmParameters;
 
   private YouClient(YouClient.Builder builder) {
+    this.httpClient = new OkHttpClient.Builder().build();
+    this.sessionId = builder.sessionId;
+    this.accessToken = builder.accessToken;
+    this.utmParameters = builder.utmParameters;
+  }
+
+  public EventSource getChatCompletionAsync(
+      YouCompletionRequest request,
+      CompletionEv
