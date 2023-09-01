@@ -37,4 +37,10 @@ public class YouClient {
 
   public EventSource getChatCompletionAsync(
       YouCompletionRequest request,
-      CompletionEv
+      CompletionEventListener completionEventListener) {
+    return EventSources.createFactory(httpClient)
+        .newEventSource(buildHttpRequest(request), getEventSourceListener(completionEventListener));
+  }
+
+  private Request buildHttpRequest(YouCompletionRequest request) {
+    var guestIdCookie = request.getUs
