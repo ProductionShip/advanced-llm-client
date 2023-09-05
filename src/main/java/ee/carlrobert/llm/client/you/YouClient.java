@@ -56,4 +56,8 @@ public class YouClient {
                 + "safesearch_guest=Moderate; "
                 + "youpro_subscription=true; "
                 + "you_subscription=free; "
-                + "stytch_ses
+                + "stytch_session=" + sessionId + "; "
+                + "ydc_stytch_session=" + sessionId + "; "
+                + "stytch_session_jwt=" + accessToken + "; "
+                + "ydc_stytch_session_jwt=" + accessToken + "; "
+                + "eg4=" + request.isUseGP
