@@ -49,4 +49,11 @@ public class YouClient {
     return new Request.Builder()
         .url(buildHttpUrl(request))
         .header("Accept", "text/event-stream")
-        .header("Cache-Control", "no-cache"
+        .header("Cache-Control", "no-cache")
+        .header("User-Agent", "youide CodeGPT")
+        .header("Cookie", (
+            guestIdCookie
+                + "safesearch_guest=Moderate; "
+                + "youpro_subscription=true; "
+                + "you_subscription=free; "
+                + "stytch_ses
