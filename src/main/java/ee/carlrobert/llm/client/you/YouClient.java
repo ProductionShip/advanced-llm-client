@@ -64,4 +64,14 @@ public class YouClient {
                 + "__cf_bm=aN2b3pQMH8XADeMB7bg9s1bJ_bfXBcCHophfOGRg6g0-1693601599-0-AWIt5Mr4Y3xQI4m"
                 + "IJ1lSf4+vijWKDobrty8OopDeBxY+NABe0MRFidF3dCUoWjRt8SVMvBZPI3zkOgcRs7Mz3yazd7f7c58"
                 + "HwW5Xg9jdBjNg;"))
+        .get()
+        .build();
+  }
+
+  private HttpUrl buildHttpUrl(YouCompletionRequest request) {
+    try {
+      var url = new URL(BASE_HOST);
+      var httpUrlBuilder = new HttpUrl.Builder()
+          .scheme(url.getProtocol())
+          .host(url.getHost())
        
