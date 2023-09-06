@@ -74,4 +74,10 @@ public class YouClient {
       var httpUrlBuilder = new HttpUrl.Builder()
           .scheme(url.getProtocol())
           .host(url.getHost())
-       
+          .addPathSegments("api/streamingSearch")
+          .addQueryParameter("q", request.getPrompt())
+          .addQueryParameter("page", "1")
+          .addQueryParameter("cfr", "CodeGPT")
+          .addQueryParameter("count", "10")
+          .addQueryParameter(
+             
