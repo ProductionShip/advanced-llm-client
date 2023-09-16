@@ -80,4 +80,8 @@ public class YouClient {
           .addQueryParameter("cfr", "CodeGPT")
           .addQueryParameter("count", "10")
           .addQueryParameter(
-             
+              "safeSearch",
+              "WebPages,Translations,TimeZone,Computation,RelatedSearches")
+          .addQueryParameter("domain", "youchat")
+          .addQueryParameter("selectedChatMode", request.getChatMode().toString())
+          .addQueryParameter("chat", OBJECT_MAPPE
