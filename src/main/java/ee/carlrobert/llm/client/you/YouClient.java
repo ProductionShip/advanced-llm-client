@@ -91,4 +91,10 @@ public class YouClient {
       }
 
       if (url.getPort() != -1) {
-   
+        httpUrlBuilder.port(url.getPort());
+      }
+      if (request.getChatId() != null) {
+        httpUrlBuilder.addQueryParameter("chatId", request.getChatId().toString());
+      }
+      if (request.getQueryTraceId() != null) {
+        httpUrlBuilder.addQueryParame
