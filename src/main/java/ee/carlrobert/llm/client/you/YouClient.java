@@ -84,4 +84,11 @@ public class YouClient {
               "WebPages,Translations,TimeZone,Computation,RelatedSearches")
           .addQueryParameter("domain", "youchat")
           .addQueryParameter("selectedChatMode", request.getChatMode().toString())
-          .addQueryParameter("chat", OBJECT_MAPPE
+          .addQueryParameter("chat", OBJECT_MAPPER.writeValueAsString(request.getMessages()));
+
+      if (request.getChatMode().isSupportCustomModel()) {
+        httpUrlBuilder.addQueryParameter("selectedAIModel", request.getCustomModel().toString());
+      }
+
+      if (url.getPort() != -1) {
+   
