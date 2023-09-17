@@ -97,4 +97,11 @@ public class YouClient {
         httpUrlBuilder.addQueryParameter("chatId", request.getChatId().toString());
       }
       if (request.getQueryTraceId() != null) {
-        httpUrlBuilder.addQueryParame
+        httpUrlBuilder.addQueryParameter("queryTraceId", request.getQueryTraceId().toString());
+      }
+      if (utmParameters != null) {
+        addUTMParameters(httpUrlBuilder);
+      }
+      return httpUrlBuilder.build();
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException
