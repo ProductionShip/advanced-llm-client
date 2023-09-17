@@ -104,4 +104,11 @@ public class YouClient {
       }
       return httpUrlBuilder.build();
     } catch (JsonProcessingException e) {
-      throw new RuntimeException
+      throw new RuntimeException("Unable to deserialize request messages", e);
+    } catch (MalformedURLException e) {
+      throw new RuntimeException("Invalid url", e);
+    }
+  }
+
+  private void addUTMParameters(HttpUrl.Builder httpUrlBuilder) {
+    if (utmParameter
