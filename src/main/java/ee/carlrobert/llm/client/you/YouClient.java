@@ -111,4 +111,11 @@ public class YouClient {
   }
 
   private void addUTMParameters(HttpUrl.Builder httpUrlBuilder) {
-    if (utmParameter
+    if (utmParameters.getId() != null) {
+      httpUrlBuilder.addQueryParameter("utm_id", utmParameters.getId());
+    }
+    if (utmParameters.getSource() != null) {
+      httpUrlBuilder.addQueryParameter("utm_source", utmParameters.getSource());
+    }
+    if (utmParameters.getMedium() != null) {
+      h
