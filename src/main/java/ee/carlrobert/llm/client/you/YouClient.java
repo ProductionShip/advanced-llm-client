@@ -118,4 +118,10 @@ public class YouClient {
       httpUrlBuilder.addQueryParameter("utm_source", utmParameters.getSource());
     }
     if (utmParameters.getMedium() != null) {
-      h
+      httpUrlBuilder.addQueryParameter("utm_medium", utmParameters.getMedium());
+    }
+    if (utmParameters.getCampaign() != null) {
+      httpUrlBuilder.addQueryParameter("utm_campaign", utmParameters.getCampaign());
+    }
+    if (utmParameters.getContent() != null) {
+      htt
