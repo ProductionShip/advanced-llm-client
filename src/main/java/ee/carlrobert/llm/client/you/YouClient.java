@@ -124,4 +124,11 @@ public class YouClient {
       httpUrlBuilder.addQueryParameter("utm_campaign", utmParameters.getCampaign());
     }
     if (utmParameters.getContent() != null) {
-      htt
+      httpUrlBuilder.addQueryParameter("utm_content", utmParameters.getContent());
+    }
+    if (utmParameters.getTerm() != null) {
+      httpUrlBuilder.addQueryParameter("utm_term", utmParameters.getTerm());
+    }
+  }
+
+  private CompletionEventSourceListener getEvent
