@@ -137,4 +137,8 @@ public class YouClient {
       @Override
       protected String getMessage(String data) {
         try {
-          var response = OBJECT_MAPPER.readValue(data,
+          var response = OBJECT_MAPPER.readValue(data, YouCompletionResponse.class);
+          if (eventListener instanceof YouCompletionEventListener) {
+            var serpResults = response.getSerpResults();
+            if (serpResults != null) {
+              ((YouCompletionEventListener) eventListener).onSerpResults(serpResu
