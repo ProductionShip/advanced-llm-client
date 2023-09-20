@@ -131,4 +131,10 @@ public class YouClient {
     }
   }
 
-  private CompletionEventSourceListener getEvent
+  private CompletionEventSourceListener getEventSourceListener(
+      CompletionEventListener eventListener) {
+    return new CompletionEventSourceListener(eventListener) {
+      @Override
+      protected String getMessage(String data) {
+        try {
+          var response = OBJECT_MAPPER.readValue(data,
