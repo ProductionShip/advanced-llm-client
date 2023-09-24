@@ -141,4 +141,17 @@ public class YouClient {
           if (eventListener instanceof YouCompletionEventListener) {
             var serpResults = response.getSerpResults();
             if (serpResults != null) {
-              ((YouCompletionEventListener) eventListener).onSerpResults(serpResu
+              ((YouCompletionEventListener) eventListener).onSerpResults(serpResults);
+            }
+          }
+
+          return response.getChatToken();
+        } catch (JacksonException e) {
+          // ignore
+        }
+        return "";
+      }
+
+      @Override
+      protected ErrorDetails getErrorDetails(String error) {
+        return new ErrorDetails(
