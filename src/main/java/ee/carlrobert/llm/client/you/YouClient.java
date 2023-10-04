@@ -154,4 +154,17 @@ public class YouClient {
 
       @Override
       protected ErrorDetails getErrorDetails(String error) {
-        return new ErrorDetails(
+        return new ErrorDetails(error);
+      }
+    };
+  }
+
+  public static class Builder {
+
+    private final String sessionId;
+    private final String accessToken;
+    private UTMParameters utmParameters;
+
+    public Builder(String sessionId, String accessToken) {
+      this.sessionId = sessionId;
+  
