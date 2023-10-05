@@ -167,4 +167,16 @@ public class YouClient {
 
     public Builder(String sessionId, String accessToken) {
       this.sessionId = sessionId;
-  
+      this.accessToken = accessToken;
+    }
+
+    public Builder setUTMParameters(UTMParameters utmParameters) {
+      this.utmParameters = utmParameters;
+      return this;
+    }
+
+    public YouClient build() {
+      return new YouClient(this);
+    }
+  }
+}
