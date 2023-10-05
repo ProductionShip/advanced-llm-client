@@ -14,4 +14,20 @@ public enum YouCompletionCustomModel {
   private final String description;
 
   YouCompletionCustomModel(String model, String description) {
-    this.model
+    this.model = model;
+    this.description = description;
+  }
+
+  public String getModel() {
+    return model;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public String toString() {
+    return model;
+  }
+
+  public static YouCompleti
