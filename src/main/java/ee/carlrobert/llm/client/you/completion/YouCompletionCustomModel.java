@@ -30,4 +30,9 @@ public enum YouCompletionCustomModel {
     return model;
   }
 
-  public static YouCompleti
+  public static YouCompletionCustomModel findByCode(String code) {
+    return Arrays.stream(YouCompletionCustomModel.values())
+        .filter(item -> item.getModel().equals(code))
+        .findFirst().orElseThrow();
+  }
+}
