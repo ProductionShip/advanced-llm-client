@@ -21,4 +21,17 @@ public enum YouCompletionMode {
   }
 
   public String getDescription() {
-    return code.substring(0, 1).toUpperCa
+    return code.substring(0, 1).toUpperCase() + code.substring(1);
+  }
+
+  public boolean isSupportCustomModel() {
+    return supportCustomModel;
+  }
+
+  public String toString() {
+    return code;
+  }
+
+  public static YouCompletionMode findByCode(String code) {
+    return Arrays.stream(YouCompletionMode.values())
+       
