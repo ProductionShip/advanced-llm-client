@@ -34,4 +34,8 @@ public enum YouCompletionMode {
 
   public static YouCompletionMode findByCode(String code) {
     return Arrays.stream(YouCompletionMode.values())
-       
+        .filter(item -> item.getCode().equals(code))
+        .findFirst().orElseThrow();
+  }
+}
+
