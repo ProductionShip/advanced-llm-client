@@ -9,4 +9,16 @@ public enum YouCompletionMode {
   RESEARCH("research", false);
 
   private final String code;
-  private final boolean supportCust
+  private final boolean supportCustomModel;
+
+  YouCompletionMode(String code, boolean supportCustomModel) {
+    this.code = code;
+    this.supportCustomModel = supportCustomModel;
+  }
+
+  public String getCode() {
+    return code;
+  }
+
+  public String getDescription() {
+    return code.substring(0, 1).toUpperCa
