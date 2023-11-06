@@ -11,4 +11,11 @@ public class YouCompletionRequest implements CompletionRequest {
   private final UUID chatId;
   private final UUID userId;
   private final UUID queryTraceId;
-  pr
+  private final boolean useGPT4Model;
+
+  private final YouCompletionMode chatMode;
+  private final YouCompletionCustomModel customModel;
+
+  public YouCompletionRequest(Builder builder) {
+    this.prompt = builder.prompt;
+    this.messages = builder.mes
