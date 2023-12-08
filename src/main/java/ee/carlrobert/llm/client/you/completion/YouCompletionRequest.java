@@ -18,4 +18,13 @@ public class YouCompletionRequest implements CompletionRequest {
 
   public YouCompletionRequest(Builder builder) {
     this.prompt = builder.prompt;
-    this.messages = builder.mes
+    this.messages = builder.messages;
+    this.chatId = builder.chatId;
+    this.userId = builder.userId;
+    this.queryTraceId = builder.queryTraceId;
+    this.useGPT4Model = builder.useGPT4Model;
+    this.chatMode = builder.chatMode;
+    this.customModel = builder.customModel;
+  }
+
+  public Str
