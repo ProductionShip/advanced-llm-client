@@ -27,4 +27,21 @@ public class YouCompletionRequest implements CompletionRequest {
     this.customModel = builder.customModel;
   }
 
-  public Str
+  public String getPrompt() {
+    return prompt;
+  }
+
+  public List<YouCompletionRequestMessage> getMessages() {
+    return messages;
+  }
+
+  public UUID getChatId() {
+    return chatId;
+  }
+
+  public UUID getUserId() {
+    return userId;
+  }
+
+  public UUID getQueryTraceId() {
+    return q
