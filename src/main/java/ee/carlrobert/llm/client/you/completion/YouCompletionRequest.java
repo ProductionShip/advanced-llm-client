@@ -44,4 +44,16 @@ public class YouCompletionRequest implements CompletionRequest {
   }
 
   public UUID getQueryTraceId() {
-    return q
+    return queryTraceId;
+  }
+
+  public boolean isUseGPT4Model() {
+    return useGPT4Model;
+  }
+
+  public YouCompletionMode getChatMode() {
+    return chatMode == null ? YouCompletionMode.DEFAULT : chatMode;
+  }
+
+  public YouCompletionCustomModel getCustomModel() {
+    return 
