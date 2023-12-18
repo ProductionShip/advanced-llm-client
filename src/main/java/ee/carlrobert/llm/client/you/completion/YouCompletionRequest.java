@@ -56,4 +56,13 @@ public class YouCompletionRequest implements CompletionRequest {
   }
 
   public YouCompletionCustomModel getCustomModel() {
-    return 
+    return customModel == null ? YouCompletionCustomModel.GPT_4_TURBO : customModel;
+  }
+
+  public static class Builder {
+
+    private final String prompt;
+    private List<YouCompletionRequestMessage> messages;
+    private UUID chatId;
+    private UUID userId;
+    private UUID queryTraceId;
