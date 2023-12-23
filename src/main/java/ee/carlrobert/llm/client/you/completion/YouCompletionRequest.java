@@ -70,4 +70,15 @@ public class YouCompletionRequest implements CompletionRequest {
     private YouCompletionMode chatMode = YouCompletionMode.DEFAULT;
     private YouCompletionCustomModel customModel = YouCompletionCustomModel.GPT_4_TURBO;
 
-    publ
+    public Builder(String prompt) {
+      this.prompt = prompt;
+    }
+
+    public Builder setChatHistory(List<YouCompletionRequestMessage> messages) {
+      this.messages = messages;
+      return this;
+    }
+
+    public Builder setChatId(UUID chatId) {
+      this.chatId = chatId;
+      return th
