@@ -66,3 +66,8 @@ public class YouCompletionRequest implements CompletionRequest {
     private UUID chatId;
     private UUID userId;
     private UUID queryTraceId;
+    private boolean useGPT4Model;
+    private YouCompletionMode chatMode = YouCompletionMode.DEFAULT;
+    private YouCompletionCustomModel customModel = YouCompletionCustomModel.GPT_4_TURBO;
+
+    publ
