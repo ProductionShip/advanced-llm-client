@@ -81,4 +81,17 @@ public class YouCompletionRequest implements CompletionRequest {
 
     public Builder setChatId(UUID chatId) {
       this.chatId = chatId;
-      return th
+      return this;
+    }
+
+    public Builder setUserId(UUID userId) {
+      this.userId = userId;
+      return this;
+    }
+
+    public Builder setQueryTraceId(UUID queryTraceId) {
+      this.queryTraceId = queryTraceId;
+      return this;
+    }
+
+    public Builder setUseGPT4Model(boolean useGPT4Mo
