@@ -94,4 +94,15 @@ public class YouCompletionRequest implements CompletionRequest {
       return this;
     }
 
-    public Builder setUseGPT4Model(boolean useGPT4Mo
+    public Builder setUseGPT4Model(boolean useGPT4Model) {
+      this.useGPT4Model = useGPT4Model;
+      return this;
+    }
+
+    public Builder setChatMode(YouCompletionMode chatMode) {
+      this.chatMode = chatMode;
+      return this;
+    }
+
+    public Builder setCustomModel(YouCompletionCustomModel customModel) {
+      this.cus
