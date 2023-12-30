@@ -105,4 +105,12 @@ public class YouCompletionRequest implements CompletionRequest {
     }
 
     public Builder setCustomModel(YouCompletionCustomModel customModel) {
-      this.cus
+      this.customModel = customModel;
+      return this;
+    }
+
+    public YouCompletionRequest build() {
+      return new YouCompletionRequest(this);
+    }
+  }
+}
