@@ -74,3 +74,7 @@ public class YouCompletionResponse implements CompletionResponse {
 
   public List<YouSerpResult> getSerpResults() {
     return serpResults;
+  }
+
+
+}
