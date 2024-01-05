@@ -13,4 +13,12 @@ public class YouSerpResult {
   private final String snippetSource;
 
   @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-  public YouSerpResul
+  public YouSerpResult(
+      @JsonProperty("url") String url,
+      @JsonProperty("name") String name,
+      @JsonProperty("snippet") String snippet,
+      @JsonProperty("snippet_source") String snippetSource) {
+    this.url = url;
+    this.name = name;
+    this.snippet = snippet;
+    this.snippetSource = snippetSource
