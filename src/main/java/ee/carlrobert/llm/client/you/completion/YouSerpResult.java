@@ -21,4 +21,22 @@ public class YouSerpResult {
     this.url = url;
     this.name = name;
     this.snippet = snippet;
-    this.snippetSource = snippetSource
+    this.snippetSource = snippetSource;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getSnippet() {
+    return snippet;
+  }
+
+  public String getSnippetSource() {
+    return snippetSource;
+  }
+}
