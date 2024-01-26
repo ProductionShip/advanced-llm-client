@@ -17,4 +17,6 @@ public interface CompletionEventListener<T> {
   default void onCancelled(StringBuilder messageBuilder) {
   }
 
-  default void onError(
+  default void onError(ErrorDetails error, Throwable ex) {
+  }
+}
