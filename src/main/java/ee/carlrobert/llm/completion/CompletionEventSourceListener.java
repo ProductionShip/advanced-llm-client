@@ -11,4 +11,11 @@ import java.util.function.Consumer;
 import okhttp3.Response;
 import okhttp3.internal.http2.StreamResetException;
 import okhttp3.sse.EventSource;
-import okhttp3.sse.EventSou
+import okhttp3.sse.EventSourceListener;
+import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public abstract class CompletionEventSourceListener<T> extends EventSourceListener {
+
+  private static final Logger LOG = LoggerFactory.getLogger(CompletionEventSourceListener.class);
