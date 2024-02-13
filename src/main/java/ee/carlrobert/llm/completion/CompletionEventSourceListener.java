@@ -19,3 +19,11 @@ import org.slf4j.LoggerFactory;
 public abstract class CompletionEventSourceListener<T> extends EventSourceListener {
 
   private static final Logger LOG = LoggerFactory.getLogger(CompletionEventSourceListener.class);
+
+  private final CompletionEventListener<T> listeners;
+  private final StringBuilder messageBuilder = new StringBuilder();
+  private final boolean retryOnReadTimeout;
+  private final Consumer<String> onRetry;
+
+  public CompletionEventSourceListener(CompletionEventListener<T> listeners) {
+    t
