@@ -51,4 +51,15 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
 
   public void onEvent(
       @NotNull EventSource eventSource,
-      Str
+      String id,
+      String type,
+      @NotNull String data) {
+    try {
+      // Redundant end signal so just ignore
+      if ("[DONE]".equals(data)) {
+        return;
+      }
+
+      var message = getMessage(data);
+      if (message != null) {
+        messageBu
