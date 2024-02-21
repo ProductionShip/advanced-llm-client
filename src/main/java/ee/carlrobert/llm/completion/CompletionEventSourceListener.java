@@ -40,4 +40,15 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
 
   protected abstract ErrorDetails getErrorDetails(String data) throws JsonProcessingException;
 
-  public void onOpen(@NotNull EventSource eventSource, @N
+  public void onOpen(@NotNull EventSource eventSource, @NotNull Response response) {
+    LOG.info("Request opened.");
+  }
+
+  public void onClosed(@NotNull EventSource eventSource) {
+    LOG.info("Request closed.");
+    listeners.onComplete(messageBuilder);
+  }
+
+  public void onEvent(
+      @NotNull EventSource eventSource,
+      Str
