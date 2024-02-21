@@ -33,4 +33,11 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
       boolean retryOnReadTimeout, Consumer<String> onRetry) {
     this.listeners = listeners;
     this.retryOnReadTimeout = retryOnReadTimeout;
-    
+    this.onRetry = onRetry;
+  }
+
+  protected abstract T getMessage(String data) throws JsonProcessingException;
+
+  protected abstract ErrorDetails getErrorDetails(String data) throws JsonProcessingException;
+
+  public void onOpen(@NotNull EventSource eventSource, @N
