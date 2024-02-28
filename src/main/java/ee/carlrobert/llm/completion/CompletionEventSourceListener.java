@@ -77,4 +77,12 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
       Response response) {
     if (throwable instanceof StreamResetException
         || (throwable instanceof SocketException
-        && "Socket c
+        && "Socket closed".equals(throwable.getMessage()))) {
+      LOG.info("Stream was cancelled");
+      listeners.onCancelled(messageBuilder);
+      return;
+    }
+
+    if (throwable instanceof SocketTimeoutException) {
+      if (retryOnReadTimeout) {
+        LOG.info("Retry
