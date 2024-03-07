@@ -106,4 +106,9 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
       if (body != null) {
         var jsonBody = body.string();
         try {
-          var errorDetails = getErrorDetails(json
+          var errorDetails = getErrorDetails(jsonBody);
+          if (errorDetails == null
+              || errorDetails.getMessage() == null
+              || errorDetails.getMessage().isEmpty()) {
+            listeners.onError(toUnknownErrorResponse(response, jsonBody), new RuntimeException());
+        
