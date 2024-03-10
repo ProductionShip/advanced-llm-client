@@ -116,4 +116,14 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
           }
         } catch (JsonProcessingException e) {
           LOG.error("Could not serialize error response", throwable);
-          listeners.onError(toUnknownErrorResponse(response
+          listeners.onError(toUnknownErrorResponse(response, jsonBody), e);
+        }
+      }
+    } catch (IOException ex) {
+      listeners.onError(new ErrorDetails(ex.getMessage()), ex);
+    }
+  }
+
+  private ErrorDetails toUnknownErrorResponse(Response response, String jsonBody) {
+    return new ErrorDetails(
+        format("Unknown AP
