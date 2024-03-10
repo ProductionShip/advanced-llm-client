@@ -126,4 +126,6 @@ public abstract class CompletionEventSourceListener<T> extends EventSourceListen
 
   private ErrorDetails toUnknownErrorResponse(Response response, String jsonBody) {
     return new ErrorDetails(
-        format("Unknown AP
+        format("Unknown API response. Code: %s, Body: %s", response.code(), jsonBody));
+  }
+}
