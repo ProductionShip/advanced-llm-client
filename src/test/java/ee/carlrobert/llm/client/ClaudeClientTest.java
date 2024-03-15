@@ -72,3 +72,58 @@ public class ClaudeClientTest extends BaseTest {
   @Test
   public void shouldGetCompletion() {
     var request = new ClaudeCompletionRequest();
+    request.setSystem("TEST_SYSTEM_PROMPT");
+    request.setTemperature(0.1);
+    request.setTopK(1);
+    request.setTopP(2);
+    request.setModel("claude-3");
+    request.setStream(false);
+    request.setMaxTokens(500);
+    request.setMessages(List.of(new ClaudeCompletionStandardMessage("user", "USER_PROMPT")));
+    expectAnthropic((BasicHttpExchange) exchange -> {
+      assertThat(exchange.getUri().getPath()).isEqualTo("/v1/messages");
+      assertThat(exchange.getMethod()).isEqualTo("POST");
+      assertThat(exchange.getHeaders().get("X-api-key").get(0)).isEqualTo("TEST_API_KEY");
+      assertThat(exchange.getHeaders().get("Anthropic-version").get(0))
+          .isEqualTo("2000-01-01");
+      assertThat(exchange.getBody())
+          .extracting(
+              "system",
+              "model",
+              "stream",
+              "max_tokens",
+              "temperature",
+              "top_k",
+              "top_p",
+              "messages")
+          .containsExactly(
+              "TEST_SYSTEM_PROMPT",
+              "claude-3",
+              false,
+              500,
+              0.1,
+              1,
+              2,
+              List.of(Map.of("role", "user", "content", "USER_PROMPT")));
+      return new ResponseEntity(
+          jsonMapResponse(
+              e("content", jsonArray(jsonMap("text", "TEST_ASSISTANT_RESPONSE"))),
+              e("usage", jsonMap(
+                  e("input_tokens", 8),
+                  e("output_tokens", 12)))));
+    });
+
+    var response = new ClaudeClient.Builder(
+        "TEST_API_KEY",
+        "2000-01-01")
+        .build()
+        .getCompletion(request);
+
+    assertThat(response.getContent()).hasSize(1);
+    assertThat(response.getContent().get(0)).isNotNull();
+    assertThat(response.getContent().get(0).getText()).isEqualTo("TEST_ASSISTANT_RESPONSE");
+    assertThat(response.getUsage())
+        .extracting("inputTokens", "outputTokens")
+        .containsExactly(8, 12);
+  }
+}
