@@ -16,4 +16,8 @@ import ee.carlrobert.llm.client.http.exchange.StreamHttpExchange;
 import ee.carlrobert.llm.client.openai.OpenAIClient;
 import ee.carlrobert.llm.client.openai.completion.OpenAIChatCompletionModel;
 import ee.carlrobert.llm.client.openai.completion.request.OpenAIChatCompletionRequest;
-import ee.carlrobert.llm.client.openai.completion.request.OpenAIChatCompletionStandardMessag
+import ee.carlrobert.llm.client.openai.completion.request.OpenAIChatCompletionStandardMessage;
+import ee.carlrobert.llm.client.openai.completion.request.OpenAITextCompletionRequest;
+import ee.carlrobert.llm.client.openai.completion.request.ResponseFormat;
+import ee.carlrobert.llm.completion.CompletionEventListener;
+import java.
