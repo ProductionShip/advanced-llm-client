@@ -30,4 +30,9 @@ public class CodeGPTClientTest extends BaseTest {
   @Test
   void shouldStreamChatCompletion() {
     var prompt = "TEST_PROMPT";
-    var resultMessageBuilder = new Strin
+    var resultMessageBuilder = new StringBuilder();
+    var responseFormat = new ResponseFormat();
+    responseFormat.setType("TEST_TYPE");
+    expectCodeGPT((StreamHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo("/v1/chat/completions");
+      assertThat(request.getMethod()).isEqualTo("POS
