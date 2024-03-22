@@ -20,4 +20,14 @@ import ee.carlrobert.llm.client.openai.completion.request.OpenAIChatCompletionSt
 import ee.carlrobert.llm.client.openai.completion.request.OpenAITextCompletionRequest;
 import ee.carlrobert.llm.client.openai.completion.request.ResponseFormat;
 import ee.carlrobert.llm.completion.CompletionEventListener;
-import java.
+import java.util.List;
+import java.util.Map;
+import okhttp3.sse.EventSource;
+import org.junit.jupiter.api.Test;
+
+public class CodeGPTClientTest extends BaseTest {
+
+  @Test
+  void shouldStreamChatCompletion() {
+    var prompt = "TEST_PROMPT";
+    var resultMessageBuilder = new Strin
