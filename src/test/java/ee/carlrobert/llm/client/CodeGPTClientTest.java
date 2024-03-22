@@ -35,4 +35,9 @@ public class CodeGPTClientTest extends BaseTest {
     responseFormat.setType("TEST_TYPE");
     expectCodeGPT((StreamHttpExchange) request -> {
       assertThat(request.getUri().getPath()).isEqualTo("/v1/chat/completions");
-      assertThat(request.getMethod()).isEqualTo("POS
+      assertThat(request.getMethod()).isEqualTo("POST");
+      assertThat(request.getHeaders().get("Authorization").get(0)).isEqualTo("Bearer TEST_API_KEY");
+      assertThat(request.getHeaders().get("X-llm-application-tag").get(0))
+          .isEqualTo("codegpt");
+      assertThat(request.getBody())
+          .extracti
