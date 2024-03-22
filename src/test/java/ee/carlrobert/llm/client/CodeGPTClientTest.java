@@ -40,4 +40,13 @@ public class CodeGPTClientTest extends BaseTest {
       assertThat(request.getHeaders().get("X-llm-application-tag").get(0))
           .isEqualTo("codegpt");
       assertThat(request.getBody())
-          .extracti
+          .extracting(
+              "model",
+              "temperature",
+              "stream",
+              "max_tokens",
+              "frequency_penalty",
+              "presence_penalty",
+              "response_format",
+              "messages")
+         
