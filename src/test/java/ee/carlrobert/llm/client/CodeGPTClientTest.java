@@ -49,4 +49,13 @@ public class CodeGPTClientTest extends BaseTest {
               "presence_penalty",
               "response_format",
               "messages")
-         
+          .containsExactly(
+              "TEST_MODEL",
+              0.5,
+              true,
+              500,
+              0.1,
+              0.1,
+              Map.of("type", responseFormat.getType()),
+              List.of(Map.of("role", "user", "content", prompt)));
+      return List.o
