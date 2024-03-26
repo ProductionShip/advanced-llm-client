@@ -58,4 +58,7 @@ public class CodeGPTClientTest extends BaseTest {
               0.1,
               Map.of("type", responseFormat.getType()),
               List.of(Map.of("role", "user", "content", prompt)));
-      return List.o
+      return List.of(
+          jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("role", "assistant")))),
+          jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("content", "Hello")))),
+          jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("content",
