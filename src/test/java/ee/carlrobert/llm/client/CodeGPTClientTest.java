@@ -61,4 +61,11 @@ public class CodeGPTClientTest extends BaseTest {
       return List.of(
           jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("role", "assistant")))),
           jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("content", "Hello")))),
-          jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("content",
+          jsonMapResponse("choices", jsonArray(jsonMap("delta", jsonMap("content", "!")))));
+    });
+
+    new CodeGPTClient("TEST_API_KEY")
+        .getChatCompletionAsync(
+            new OpenAIChatCompletionRequest.Builder(
+                List.of(new OpenAIChatCompletionStandardMessage("user", prompt)))
+                .setModel("TEST
