@@ -68,4 +68,11 @@ public class CodeGPTClientTest extends BaseTest {
         .getChatCompletionAsync(
             new OpenAIChatCompletionRequest.Builder(
                 List.of(new OpenAIChatCompletionStandardMessage("user", prompt)))
-                .setModel("TEST
+                .setModel("TEST_MODEL")
+                .setMaxTokens(500)
+                .setTemperature(0.5)
+                .setPresencePenalty(0.1)
+                .setFrequencyPenalty(0.1)
+                .setResponseFormat(responseFormat)
+                .build(),
+            new Co
