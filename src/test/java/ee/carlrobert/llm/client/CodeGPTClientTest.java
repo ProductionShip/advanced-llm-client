@@ -82,4 +82,11 @@ public class CodeGPTClientTest extends BaseTest {
               }
             });
 
-    
+    await().atMost(5, SECONDS).until(() -> "Hello!".contentEquals(resultMessageBuilder));
+  }
+
+  @Test
+  void shouldStreamCompletion() {
+    var resultMessageBuilder = new StringBuilder();
+    expectCodeGPT((StreamHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo(
