@@ -75,4 +75,11 @@ public class CodeGPTClientTest extends BaseTest {
                 .setFrequencyPenalty(0.1)
                 .setResponseFormat(responseFormat)
                 .build(),
-            new Co
+            new CompletionEventListener<String>() {
+              @Override
+              public void onMessage(String message, EventSource eventSource) {
+                resultMessageBuilder.append(message);
+              }
+            });
+
+    
