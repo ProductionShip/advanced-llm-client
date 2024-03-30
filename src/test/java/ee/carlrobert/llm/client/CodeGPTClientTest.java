@@ -93,4 +93,13 @@ public class CodeGPTClientTest extends BaseTest {
       assertThat(request.getMethod()).isEqualTo("POST");
       assertThat(request.getHeaders().get("Authorization").get(0)).isEqualTo("Bearer TEST_API_KEY");
       assertThat(request.getHeaders().get("X-llm-application-tag").get(0))
-          .isEq
+          .isEqualTo("codegpt");
+      assertThat(request.getBody())
+          .extracting(
+              "model",
+              "prompt",
+              "suffix",
+              "temperature",
+              "stream",
+              "max_tokens",
+              "frequency_penal
