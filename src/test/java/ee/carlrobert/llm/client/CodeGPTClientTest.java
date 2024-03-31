@@ -102,4 +102,15 @@ public class CodeGPTClientTest extends BaseTest {
               "temperature",
               "stream",
               "max_tokens",
-              "frequency_penal
+              "frequency_penalty",
+              "presence_penalty")
+          .containsExactly(
+              "TEST_MODEL",
+              "TEST_PROMPT",
+              "TEST_SUFFIX",
+              0.5,
+              true,
+              500,
+              0.1,
+              0.1);
+      return List.of
