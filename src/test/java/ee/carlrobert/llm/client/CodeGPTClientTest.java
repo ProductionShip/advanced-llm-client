@@ -113,4 +113,10 @@ public class CodeGPTClientTest extends BaseTest {
               500,
               0.1,
               0.1);
-      return List.of
+      return List.of(
+          "{}",
+          jsonMapResponse("choices", null),
+          jsonMapResponse("choices", jsonArray()),
+          jsonMapResponse("choices", jsonArray((Map<String, ?>) null)),
+          jsonMapResponse("choices", jsonArray(jsonMap())),
+          jsonMapResponse
