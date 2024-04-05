@@ -119,4 +119,7 @@ public class CodeGPTClientTest extends BaseTest {
           jsonMapResponse("choices", jsonArray()),
           jsonMapResponse("choices", jsonArray((Map<String, ?>) null)),
           jsonMapResponse("choices", jsonArray(jsonMap())),
-          jsonMapResponse
+          jsonMapResponse("choices", jsonArray(jsonMap("text", null))),
+          jsonMapResponse("choices", jsonArray(jsonMap("text", ""))),
+          jsonMapResponse("choices", jsonArray(jsonMap("text", "Hello"))),
+          jsonMapResponse("choices", jsonArray(jsonMap("text", "!"))));
