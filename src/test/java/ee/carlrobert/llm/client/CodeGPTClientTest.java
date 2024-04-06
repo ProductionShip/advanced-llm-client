@@ -123,3 +123,18 @@ public class CodeGPTClientTest extends BaseTest {
           jsonMapResponse("choices", jsonArray(jsonMap("text", ""))),
           jsonMapResponse("choices", jsonArray(jsonMap("text", "Hello"))),
           jsonMapResponse("choices", jsonArray(jsonMap("text", "!"))));
+    });
+
+    new CodeGPTClient("TEST_API_KEY")
+        .getCompletionAsync(new OpenAITextCompletionRequest.Builder("TEST_PROMPT")
+                .setSuffix("TEST_SUFFIX")
+                .setStream(true)
+                .setModel("TEST_MODEL")
+                .setMaxTokens(500)
+                .setTemperature(0.5)
+                .setPresencePenalty(0.1)
+                .setFrequencyPenalty(0.1)
+                .build(),
+            new CompletionEventListener<String>() {
+              @Override
+              public void on
