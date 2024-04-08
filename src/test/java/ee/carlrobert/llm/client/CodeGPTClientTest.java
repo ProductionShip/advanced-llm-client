@@ -146,4 +146,8 @@ public class CodeGPTClientTest extends BaseTest {
   }
 
   @Test
-  void shouldGetChatComple
+  void shouldGetChatCompletion() {
+    expectCodeGPT((BasicHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo("/v1/chat/completions");
+      assertThat(request.getMethod()).isEqualTo("POST");
+      assertThat(request.getHeaders().get("Authorization").get(0)).isEqualTo("Be
