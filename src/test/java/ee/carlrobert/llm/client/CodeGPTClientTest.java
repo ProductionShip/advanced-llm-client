@@ -137,4 +137,13 @@ public class CodeGPTClientTest extends BaseTest {
                 .build(),
             new CompletionEventListener<String>() {
               @Override
-              public void on
+              public void onMessage(String message, EventSource eventSource) {
+                resultMessageBuilder.append(message);
+              }
+            });
+
+    await().atMost(5, SECONDS).until(() -> "Hello!".contentEquals(resultMessageBuilder));
+  }
+
+  @Test
+  void shouldGetChatComple
