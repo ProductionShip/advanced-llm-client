@@ -168,4 +168,10 @@ public class CodeGPTClientTest extends BaseTest {
               false,
               500,
               0.1,
-              0.
+              0.1,
+              List.of(Map.of("role", "user", "content", "TEST_PROMPT")));
+
+      return new ResponseEntity(new ObjectMapper().writeValueAsString(Map.of("choices", List.of(
+          Map.of("message", Map.of(
+              "role", "assistant",
+              "cont
