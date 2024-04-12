@@ -157,4 +157,15 @@ public class CodeGPTClientTest extends BaseTest {
           .extracting(
               "model",
               "temperature",
-           
+              "stream",
+              "max_tokens",
+              "frequency_penalty",
+              "presence_penalty",
+              "messages")
+          .containsExactly(
+              "TEST_MODEL",
+              0.5,
+              false,
+              500,
+              0.1,
+              0.
