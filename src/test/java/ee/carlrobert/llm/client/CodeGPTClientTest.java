@@ -180,4 +180,12 @@ public class CodeGPTClientTest extends BaseTest {
     var response = new CodeGPTClient("TEST_API_KEY")
         .getChatCompletion(new OpenAIChatCompletionRequest.Builder(
             List.of(new OpenAIChatCompletionStandardMessage("user", "TEST_PROMPT")))
-   
+            .setModel("TEST_MODEL")
+            .setMaxTokens(500)
+            .setTemperature(0.5)
+            .setPresencePenalty(0.1)
+            .setFrequencyPenalty(0.1)
+            .setStream(false)
+            .build());
+
+    assertThat(response.getChoices())
