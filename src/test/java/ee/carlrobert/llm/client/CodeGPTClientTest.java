@@ -174,4 +174,10 @@ public class CodeGPTClientTest extends BaseTest {
       return new ResponseEntity(new ObjectMapper().writeValueAsString(Map.of("choices", List.of(
           Map.of("message", Map.of(
               "role", "assistant",
-              "cont
+              "content", "This is a test"))))));
+    });
+
+    var response = new CodeGPTClient("TEST_API_KEY")
+        .getChatCompletion(new OpenAIChatCompletionRequest.Builder(
+            List.of(new OpenAIChatCompletionStandardMessage("user", "TEST_PROMPT")))
+   
