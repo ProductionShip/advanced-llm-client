@@ -189,3 +189,8 @@ public class CodeGPTClientTest extends BaseTest {
             .build());
 
     assertThat(response.getChoices())
+        .extracting("message")
+        .extracting("role", "content")
+        .containsExactly(tuple("assistant", "This is a test"));
+  }
+}
