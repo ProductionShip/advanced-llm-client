@@ -376,3 +376,106 @@ class OpenAIClientTest extends BaseTest {
     assertThat(response.getChoices()).hasSize(1);
     assertThat(response.getChoices().get(0)).isNotNull();
     var message = response.getChoices().get(0).getMessage();
+    assertThat(message).isNotNull();
+    assertThat(message.getRole()).isEqualTo("assistant");
+    assertThat(message.getToolCalls()).hasSize(1);
+    assertThat(message.getToolCalls().get(0).getId()).isEqualTo("call_abc123");
+    assertThat(message.getToolCalls().get(0).getType()).isEqualTo("function");
+    assertThat(message.getToolCalls().get(0).getFunction())
+        .extracting("name", "arguments")
+        .containsExactly("get_current_weather", "{\n\"location\": \"Boston, MA\"\n}");
+  }
+
+  @Test
+  void shouldHandleInvalidApiKeyError() {
+    var errorMessageBuilder = new StringBuilder();
+    var errorResponse = jsonMapResponse("error", jsonMap(
+        e("message", "Incorrect API key provided"),
+        e("type", "invalid_request_error"),
+        e("code", "invalid_api_key")));
+    expectOpenAI((BasicHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo("/v1/chat/completions");
+      return new ResponseEntity(401, errorResponse);
+    });
+
+    new OpenAIClient.Builder("TEST_API_KEY")
+        .build()
+        .getChatCompletionAsync(
+            new OpenAIChatCompletionRequest.Builder(
+                List.of(new OpenAIChatCompletionStandardMessage("user", "TEST_PROMPT")))
+                .setModel(OpenAIChatCompletionModel.GPT_3_5)
+                .build(),
+            new CompletionEventListener<String>() {
+              @Override
+              public void onError(ErrorDetails error, Throwable t) {
+                assertThat(error.getCode()).isEqualTo("invalid_api_key");
+                assertThat(error.getType()).isEqualTo("invalid_request_error");
+                errorMessageBuilder.append(error.getMessage());
+              }
+            });
+
+    await().atMost(5, SECONDS)
+        .until(() -> "Incorrect API key provided".contentEquals(errorMessageBuilder));
+  }
+
+  @Test
+  void shouldHandleUnknownApiError() {
+    var errorMessageBuilder = new StringBuilder();
+    var errorResponse = jsonMapResponse("error_details", "Server error");
+    expectOpenAI((BasicHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo("/v1/chat/completions");
+      return new ResponseEntity(500, errorResponse);
+    });
+
+    new OpenAIClient.Builder("TEST_API_KEY")
+        .build()
+        .getChatCompletionAsync(
+            new OpenAIChatCompletionRequest.Builder(
+                List.of(new OpenAIChatCompletionStandardMessage("user", "TEST_PROMPT")))
+                .setModel(OpenAIChatCompletionModel.GPT_3_5)
+                .build(),
+            new CompletionEventListener<String>() {
+              @Override
+              public void onError(ErrorDetails error, Throwable t) {
+                errorMessageBuilder.append(error.getMessage());
+              }
+            });
+
+    await().atMost(5, SECONDS)
+        .until(() -> ("Unknown API response. "
+            + "Code: 500, "
+            + "Body: {\"error_details\":\"Server error\"}").contentEquals(errorMessageBuilder));
+  }
+
+  static Stream<Arguments> testEmbeddings() {
+    double[] one = {1};
+    Map<String, ?> embeddingOne = jsonMap("embedding", one);
+    Map<String, ?> embeddingNull = jsonMap("embedding", null);
+    Map<String, ?> embeddingTwo = jsonMap("embedding", new double[]{2});
+    return Stream.of(
+        Arguments.of("{}", null),
+        Arguments.of(jsonMapResponse("data", null), null),
+        Arguments.of(jsonMapResponse("data", jsonArray()), null),
+        Arguments.of(jsonMapResponse("data", jsonArray(null, embeddingOne)), one),
+        Arguments.of(jsonMapResponse("data", jsonArray(embeddingNull, embeddingOne)), one),
+        Arguments.of(jsonMapResponse("data", jsonArray(embeddingOne, embeddingTwo)), one)
+    );
+  }
+
+  @ParameterizedTest
+  @MethodSource("testEmbeddings")
+  void shouldGetEmbeddings(String json, double[] expected) {
+    expectOpenAI((BasicHttpExchange) request -> {
+      assertThat(request.getUri().getPath()).isEqualTo("/v1/embeddings");
+      assertThat(request.getMethod()).isEqualTo("POST");
+      assertThat(request.getHeaders().get("Authorization").get(0)).isEqualTo("Bearer TEST_API_KEY");
+      return new ResponseEntity(200, json);
+    });
+
+    var result = new OpenAIClient.Builder("TEST_API_KEY")
+        .build()
+        .getEmbedding("TEST_PROMPT");
+
+    assertThat(result).isEqualTo(expected);
+  }
+}
