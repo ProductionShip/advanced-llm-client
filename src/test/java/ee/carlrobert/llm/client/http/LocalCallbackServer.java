@@ -12,3 +12,12 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class LocalCallbackServer {
+
+  private static final Logger LOG = LoggerFactory.getLogger(LocalCallbackServer.class);
+
+  private final AtomicI
