@@ -20,4 +20,10 @@ public class LocalCallbackServer {
 
   private static final Logger LOG = LoggerFactory.getLogger(LocalCallbackServer.class);
 
-  private final AtomicI
+  private final AtomicInteger currentExpectationIndex = new AtomicInteger();
+  private final List<Expectation> expectations = new CopyOnWriteArrayList<>();
+  private final HttpServer server;
+
+  public LocalCallbackServer(Service service) {
+    try {
+      server = HttpServer.crea
