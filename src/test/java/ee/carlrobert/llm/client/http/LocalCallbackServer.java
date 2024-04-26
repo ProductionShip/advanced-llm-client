@@ -26,4 +26,11 @@ public class LocalCallbackServer {
 
   public LocalCallbackServer(Service service) {
     try {
-      server = HttpServer.crea
+      server = HttpServer.create(new InetSocketAddress(0), 0);
+    } catch (IOException e) {
+      throw new RuntimeException("Could not create HttpServer", e);
+    }
+    server.setExecutor(null);
+    server.createContext("/", exchange -> {
+      try {
+        var expectation = expectations.get(currentExpectatio
