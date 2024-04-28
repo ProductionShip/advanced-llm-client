@@ -33,4 +33,9 @@ public class LocalCallbackServer {
     server.setExecutor(null);
     server.createContext("/", exchange -> {
       try {
-        var expectation = expectations.get(currentExpectatio
+        var expectation = expectations.get(currentExpectationIndex.getAndIncrement());
+        if (!expectation.getService().getUrlProperty().equals(service.getUrlProperty())) {
+          try {
+            throw new AssertionError(
+                format("Expecting request \"%s\", but received \"%s\"",
+                    s
