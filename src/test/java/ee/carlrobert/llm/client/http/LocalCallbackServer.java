@@ -45,4 +45,9 @@ public class LocalCallbackServer {
             throw e;
           } finally {
             exchange.sendResponseHeaders(500, -1);
-     
+            exchange.getRequestBody().close();
+          }
+        }
+        if (expectation instanceof StreamExpectation) {
+          handleStreamExchange((StreamExpectation) expectation, exchange);
+        } else if (expectation instanceof NdJsonStreamExpectation)
