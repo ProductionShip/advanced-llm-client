@@ -38,4 +38,11 @@ public class LocalCallbackServer {
           try {
             throw new AssertionError(
                 format("Expecting request \"%s\", but received \"%s\"",
-                    s
+                    service.getUrlProperty(),
+                    expectation.getService().getUrlProperty()));
+          } catch (AssertionError e) {
+            LOG.error(e.getMessage());
+            throw e;
+          } finally {
+            exchange.sendResponseHeaders(500, -1);
+     
