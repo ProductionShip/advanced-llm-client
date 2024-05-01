@@ -50,4 +50,11 @@ public class LocalCallbackServer {
         }
         if (expectation instanceof StreamExpectation) {
           handleStreamExchange((StreamExpectation) expectation, exchange);
-        } else if (expectation instanceof NdJsonStreamExpectation)
+        } else if (expectation instanceof NdJsonStreamExpectation) {
+          handleNdjsonStreamExchange((NdJsonStreamExpectation) expectation, exchange);
+        } else {
+          handleExchange((BasicExpectation) expectation, exchange);
+        }
+      } catch (Throwable e) {
+        LOG.error("Request failed", e);
+        th
