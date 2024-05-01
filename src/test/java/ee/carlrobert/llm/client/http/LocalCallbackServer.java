@@ -57,4 +57,17 @@ public class LocalCallbackServer {
         }
       } catch (Throwable e) {
         LOG.error("Request failed", e);
-        th
+        throw e;
+      } finally {
+        exchange.close();
+      }
+    });
+    server.start();
+  }
+
+  public int getPort() {
+    return server.getAddress().getPort();
+  }
+
+  public void addExpectation(Expectation expectation) {
+    expectations.add(expectatio
