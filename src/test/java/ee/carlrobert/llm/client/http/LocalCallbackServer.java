@@ -70,4 +70,14 @@ public class LocalCallbackServer {
   }
 
   public void addExpectation(Expectation expectation) {
-    expectations.add(expectatio
+    expectations.add(expectation);
+  }
+
+  public void clear() {
+    currentExpectationIndex.set(0);
+    expectations.clear();
+  }
+
+  private void handleExchange(
+      BasicExpectation expectation, HttpExchange exchange) throws IOException {
+    exchange.getResponseHeaders().add(
