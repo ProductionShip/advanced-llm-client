@@ -80,4 +80,10 @@ public class LocalCallbackServer {
 
   private void handleExchange(
       BasicExpectation expectation, HttpExchange exchange) throws IOException {
-    exchange.getResponseHeaders().add(
+    exchange.getResponseHeaders().add("Content-Type", "application/json");
+
+    var response = expectation.getExchange().getResponse(new RequestEntity(exchange));
+    var responseBody = exchange.getResponseBody();
+    String responseString = response.getResponse();
+    exchange.sendResponseHeaders(response.getStatusCode(),
+       
