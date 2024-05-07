@@ -95,4 +95,8 @@ public class LocalCallbackServer {
   }
 
   private void handleStreamExchange(
-      StreamExpectation expe
+      StreamExpectation expectation, HttpExchange exchange) throws IOException {
+    exchange.getResponseHeaders().add("Content-Type", "text/event-stream");
+    exchange.getResponseHeaders().add("Cache-Control", "no-cache");
+    exchange.getResponseHeaders().add("Connection", "keep-alive");
+    excha
