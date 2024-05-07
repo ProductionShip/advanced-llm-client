@@ -86,4 +86,13 @@ public class LocalCallbackServer {
     var responseBody = exchange.getResponseBody();
     String responseString = response.getResponse();
     exchange.sendResponseHeaders(response.getStatusCode(),
-       
+        responseString == null ? 0 : responseString.length());
+    if (responseString != null) {
+      responseBody.write(responseString.getBytes());
+      responseBody.flush();
+      responseBody.close();
+    }
+  }
+
+  private void handleStreamExchange(
+      StreamExpectation expe
