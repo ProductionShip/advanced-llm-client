@@ -99,4 +99,13 @@ public class LocalCallbackServer {
     exchange.getResponseHeaders().add("Content-Type", "text/event-stream");
     exchange.getResponseHeaders().add("Cache-Control", "no-cache");
     exchange.getResponseHeaders().add("Connection", "keep-alive");
-    excha
+    exchange.sendResponseHeaders(200, 0);
+
+    var responseBody = exchange.getResponseBody();
+
+    for (var event : expectation.getExchange().getResponse(new RequestEntity(exchange))) {
+      responseBody.write((format("data: %s\n\n", event)).getBytes());
+      sleep(250);
+    }
+
+    respon
