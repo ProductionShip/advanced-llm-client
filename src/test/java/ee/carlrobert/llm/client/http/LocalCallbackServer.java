@@ -115,4 +115,9 @@ public class LocalCallbackServer {
 
   private void handleNdjsonStreamExchange(
       NdJsonStreamExpectation expectation, HttpExchange exchange) throws IOException {
-    excha
+    exchange.getResponseHeaders().add("Content-Type", "application/x-ndjson");
+    exchange.getResponseHeaders().add("Cache-Control", "no-cache");
+    exchange.getResponseHeaders().add("Connection", "keep-alive");
+    exchange.sendResponseHeaders(200, 0);
+
+    var responseBody =
