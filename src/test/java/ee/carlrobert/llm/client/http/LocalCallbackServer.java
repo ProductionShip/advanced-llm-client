@@ -108,4 +108,11 @@ public class LocalCallbackServer {
       sleep(250);
     }
 
-    respon
+    responseBody.write(("data: [DONE]\n\n").getBytes());
+    responseBody.flush();
+    responseBody.close();
+  }
+
+  private void handleNdjsonStreamExchange(
+      NdJsonStreamExpectation expectation, HttpExchange exchange) throws IOException {
+    excha
