@@ -128,4 +128,14 @@ public class LocalCallbackServer {
     }
 
     responseBody.flush();
-    responseBody.cl
+    responseBody.close();
+  }
+
+  private static void sleep(long ms) {
+    try {
+      Thread.sleep(ms);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+}
