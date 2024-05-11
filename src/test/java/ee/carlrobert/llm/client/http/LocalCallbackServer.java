@@ -120,4 +120,12 @@ public class LocalCallbackServer {
     exchange.getResponseHeaders().add("Connection", "keep-alive");
     exchange.sendResponseHeaders(200, 0);
 
-    var responseBody =
+    var responseBody = exchange.getResponseBody();
+
+    for (var event : expectation.getExchange().getResponse(new RequestEntity(exchange))) {
+      responseBody.write((format("%s\n", event)).getBytes());
+      sleep(250);
+    }
+
+    responseBody.flush();
+    responseBody.cl
