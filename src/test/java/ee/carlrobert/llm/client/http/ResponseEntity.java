@@ -10,4 +10,15 @@ public class ResponseEntity {
   }
 
   public ResponseEntity(int statusCode, String response) {
-    th
+    this.statusCode = statusCode;
+    this.response = response;
+  }
+
+  public int getStatusCode() {
+    return statusCode;
+  }
+
+  public String getResponse() {
+    return response;
+  }
+}
