@@ -9,3 +9,10 @@ public class BasicExpectation extends Expectation {
 
   public BasicExpectation(Service service, BasicHttpExchange exchange) {
     super(service);
+    this.exchange = exchange;
+  }
+
+  public BasicHttpExchange getExchange() {
+    return exchange;
+  }
+}
