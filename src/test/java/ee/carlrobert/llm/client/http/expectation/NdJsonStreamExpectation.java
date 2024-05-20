@@ -10,3 +10,9 @@ public class NdJsonStreamExpectation extends Expectation {
   public NdJsonStreamExpectation(Service service, NdJsonStreamHttpExchange exchange) {
     super(service);
     this.exchange = exchange;
+  }
+
+  public NdJsonStreamHttpExchange getExchange() {
+    return exchange;
+  }
+}
