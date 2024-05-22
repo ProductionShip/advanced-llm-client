@@ -18,4 +18,7 @@ public enum ExternalService implements Service {
     this.urlProperty = urlProperty;
   }
 
-  public String getUrlProperty(
+  public String getUrlProperty() {
+    return urlProperty;
+  }
+}
